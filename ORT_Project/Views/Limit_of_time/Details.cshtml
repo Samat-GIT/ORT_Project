@@ -1,0 +1,42 @@
+﻿@model ORT_Project.Models.Limit_of_time
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Limit_of_time</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Date_of_limit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date_of_limit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Limit_start)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Limit_start)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Limit_end)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Limit_end)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_Time }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

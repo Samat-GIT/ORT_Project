@@ -1,0 +1,42 @@
+﻿@model ORT_Project.Models.Fired_Employee
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Fired_Employee</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Date_leavingFierd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date_leavingFierd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date_appointmentFired)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date_appointmentFired)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Employees.Surname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employees.Surname)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_fired }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

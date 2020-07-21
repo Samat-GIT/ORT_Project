@@ -1,0 +1,69 @@
+﻿@model IEnumerable<ORT_Project.Models.Access_ticket>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Photo_3x4)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Photo_signature)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Photo_of_passport)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Document_number)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Notification)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Document_selection)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Graduant.Sur_name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Photo_3x4)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Photo_signature)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Photo_of_passport)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Document_number)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Notification)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Document_selection)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Graduant.Sur_name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID_ticet }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID_ticet }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID_ticet })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,74 @@
+﻿@model ORT_Project.Models.School
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>School</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.School_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.School_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Postal_zip)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Postal_zip)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Code_of_school)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Code_of_school)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Password_school)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Password_school)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LocalitiName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LocalitiName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LocalityAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LocalityAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.District_town_.District_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.District_town_.District_name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_School }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

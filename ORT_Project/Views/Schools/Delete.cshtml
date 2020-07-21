@@ -1,0 +1,80 @@
+﻿@model ORT_Project.Models.School
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>School</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.School_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.School_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Postal_zip)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Postal_zip)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Code_of_school)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Code_of_school)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Password_school)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Password_school)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LocalitiName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LocalitiName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LocalityAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LocalityAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.District_town_.District_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.District_town_.District_name)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

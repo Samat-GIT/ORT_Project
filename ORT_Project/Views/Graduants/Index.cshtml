@@ -1,0 +1,147 @@
+﻿@model IEnumerable<ORT_Project.Models.Graduant>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Sur_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Third_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Birth_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Street)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Microdistrict)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Apartment_House)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone_number)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Diplom_number)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Attestat_number)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date_of_registr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LocalityName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LocalityAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Authorization.Login)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Category_Graduent.Category_Graduent1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.District_town_.District_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Language1.Language_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.School1.School_name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sur_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.First_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Third_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Birth_date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Street)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Microdistrict)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Apartment_House)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone_number)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Diplom_number)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Attestat_number)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date_of_registr)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LocalityName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LocalityAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Authorization.Login)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Category_Graduent.Category_Graduent1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.District_town_.District_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Language1.Language_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.School1.School_name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID_Graduant }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID_Graduant }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID_Graduant })
+        </td>
+    </tr>
+}
+
+</table>

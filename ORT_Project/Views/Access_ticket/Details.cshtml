@@ -1,0 +1,74 @@
+﻿@model ORT_Project.Models.Access_ticket
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Access_ticket</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Photo_3x4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Photo_3x4)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Photo_signature)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Photo_signature)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Photo_of_passport)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Photo_of_passport)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Document_number)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Document_number)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Notification)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Notification)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Document_selection)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Document_selection)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Graduant.Sur_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Graduant.Sur_name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_ticet }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+        <link href="~/Content/MvcGrid/mvc-grid.css" rel="stylesheet">
+    </environment>
+
+    <environment include="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/js/MvcGrid/mvc-grid.js"></script>
+        <script>
+        [].forEach.call(document.getElementsByClassName('mvc-grid'), function (element) {
+                         new MvcGrid(element);
+                     });
+        </script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+    </environment>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("ORT", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    @*<li>@Html.ActionLink("Домашняя страница", "Index", "Home")</li>
+        <li>@Html.ActionLink("Информация", "About", "Home")</li>
+        <li>@Html.ActionLink("Связаться", "Contact", "Home")</li>*@
+                    <li>@Html.ActionLink("Уровень доступа", "Index", "Access_level")</li>
+                    <li>@Html.ActionLink("Форма 3", "Index", "Access_ticket")</li>
+                    <li>@Html.ActionLink("Авторизация", "Index", "Authorizations")</li>
+                    <li>@Html.ActionLink("Тип выпускника", "Index", "Category_Graduent")</li>
+                    <li>@Html.ActionLink("Район(город)", "Index", "District_town_")</li>
+                    <li>@Html.ActionLink("Сотрудники", "Index", "Employees")</li>
+                    <li>@Html.ActionLink("Уволенные сотрудники", "Index", "Fired_Employee")</li>
+                    <li>@Html.ActionLink("Выпускники", "Index", "Graduants")</li>
+                    <li>@Html.ActionLink("Языки", "Index", "Languages")</li>
+                    <li>@Html.ActionLink("Ограничение по времени", "Index", "Limit_of_time")</li>
+                    <li>@Html.ActionLink("Должность", "Index", "Positions")</li>
+                    <li>@Html.ActionLink("Квитанция", "Index", "Receipts")</li>
+
+                    <li>@Html.ActionLink("Регионы", "Index", "Regions")</li>
+                    <li>@Html.ActionLink("Школы", "Index", "Schools")</li>
+                    <li>@Html.ActionLink("Предметы", "Index", "Subjects")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - мое приложение ASP.NET</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
