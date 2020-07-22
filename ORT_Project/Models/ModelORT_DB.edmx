@@ -2389,6 +2389,22 @@
                 <ScalarProperty Name="Subject_Price" ColumnName="Subject_Price" />
               </MappingFragment>
             </EntityTypeMapping>
+            <EntityTypeMapping TypeName="ORTModel.Subject">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="Хранилище ORTModel.Add_Subject_Price">
+                  <ScalarProperty Name="Subject_name" ParameterName="Subject_Name" />
+                  <ScalarProperty Name="Subject_Price" ParameterName="Subject_Price" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="Хранилище ORTModel.UpSubject" >
+                  <ScalarProperty Name="Subject_Price" ParameterName="UpSubject_Price" Version="Current" />
+                  <ScalarProperty Name="Subject_name" ParameterName="UpSubject_name" Version="Current" />
+                  <ScalarProperty Name="ID_Subject" ParameterName="idSubject" Version="Current" />
+                </UpdateFunction>
+                <DeleteFunction FunctionName="Хранилище ORTModel.Del_Subject" >
+                  <ScalarProperty Name="ID_Subject" ParameterName="delsubject" />
+                </DeleteFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
             <EntityTypeMapping TypeName="ORTModel.sysdiagrams">
