@@ -34,29 +34,70 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("DICKLORD", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Хоум", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
+            @*Снизу идут комбобоксы для доступа к основным представлениям*@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    @*<li>@Html.ActionLink("Домашняя страница", "Index", "Home")</li>
-        <li>@Html.ActionLink("Информация", "About", "Home")</li>
-        <li>@Html.ActionLink("Связаться", "Contact", "Home")</li>*@
-                    <li>@Html.ActionLink("Уровень доступа", "Index", "Access_level")</li>
-                    <li>@Html.ActionLink("Форма 3", "Index", "Access_ticket")</li>
-                    <li>@Html.ActionLink("Авторизация", "Index", "Authorizations")</li>
-                    <li>@Html.ActionLink("Тип выпускника", "Index", "Category_Graduent")</li>
-                    <li>@Html.ActionLink("Район(город)", "Index", "District_town_")</li>
-                    <li>@Html.ActionLink("Сотрудники", "Index", "Employees")</li>
-                    <li>@Html.ActionLink("Уволенные сотрудники", "Index", "Fired_Employee")</li>
-                    <li>@Html.ActionLink("Выпускники", "Index", "Graduants")</li>
-                    <li>@Html.ActionLink("Языки", "Index", "Languages")</li>
-                    <li>@Html.ActionLink("Ограничение по времени", "Index", "Limit_of_time")</li>
-                    <li>@Html.ActionLink("Должность", "Index", "Positions")</li>
-                    <li>@Html.ActionLink("Квитанция", "Index", "Receipts")</li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            Администрирование
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            @*Если захочешь добавить еще одну менюшку скопируй одну строку ниже и задай название контроллера и метода, а также напиши название*@
+                            <li><a href="@Url.Action("Index", "Access_level")">Уровень доступа</a></li>
+                            <li><a href="@Url.Action("Index", "Authorizations")">Авторизация</a></li>
+                            <li><a href="@Url.Action("Index", "Languages")">Языки</a></li>
+                            <li><a href="@Url.Action("Index", "Limit_of_time")">Ограничение по времени</a></li>
 
-                    <li>@Html.ActionLink("Регионы", "Index", "Regions")</li>
-                    <li>@Html.ActionLink("Школы", "Index", "Schools")</li>
-                    <li>@Html.ActionLink("Предметы", "Index", "Subjects")</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            Работа с регионами
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="@Url.Action("Index", "Regions")">Регионы</a></li>
+                            <li><a href="@Url.Action("Index", "Schools")">Школы</a></li>
+                            <li><a href="@Url.Action("Index", "District_town_")">Район(город)</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            Управление персоналом
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="@Url.Action("Index", "Employees")">Сотрудники</a></li>
+                            <li><a href="@Url.Action("Index", "Fired_Employee")">Уволенные сотрудники</a></li>
+                            <li><a href="@Url.Action("Index", "Positions")">Должности</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            Абитуриент
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="@Url.Action("Index", "Access_ticket")">Форма 3</a></li>
+                            <li><a href="@Url.Action("Index", "Category_Graduent")">Тип выпускника</a></li>
+                            <li><a href="@Url.Action("Index", "Graduants")">Выпускники</a></li>
+                            
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            Работа с тестом
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="@Url.Action("Index", "Subjects")">Предметы</a></li>
+                            <li><a href="@Url.Action("Index", "Receipts")">Квитанции</a></li>
+                            
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>
