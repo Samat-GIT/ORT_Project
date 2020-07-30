@@ -2208,6 +2208,20 @@
                 <ScalarProperty Name="Access_level1" ColumnName="Access_level" />
               </MappingFragment>
             </EntityTypeMapping>
+            <EntityTypeMapping TypeName="ORTModel.Access_level">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="Хранилище ORTModel.Add_Access_level" >
+                  <ScalarProperty Name="Access_level1" ParameterName="accesslevel" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="Хранилище ORTModel.Up_Access_level" >
+                  <ScalarProperty Name="Access_level1" ParameterName="Access_level" Version="Current" />
+                  <ScalarProperty Name="ID_access_level" ParameterName="idAccess_level" Version="Current" />
+                </UpdateFunction>
+                <DeleteFunction FunctionName="Хранилище ORTModel.Del_Access_level" >
+                  <ScalarProperty Name="ID_access_level" ParameterName="delaccesslevel" />
+                </DeleteFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Access_ticket">
             <EntityTypeMapping TypeName="ORTModel.Access_ticket">
@@ -2239,6 +2253,20 @@
                 <ScalarProperty Name="Category_Graduent1" ColumnName="Category_Graduent" />
               </MappingFragment>
             </EntityTypeMapping>
+            <EntityTypeMapping TypeName="ORTModel.Category_Graduent">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="Хранилище ORTModel.Add_Category_Graduant" >
+                  <ScalarProperty Name="Category_Graduent1" ParameterName="category" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="Хранилище ORTModel.Up_Category_Graduant" >
+                  <ScalarProperty Name="ID_Category" ParameterName="UpidCategory" Version="Current" />
+                  <ScalarProperty Name="Category_Graduent1" ParameterName="UpCategoryGraduant" Version="Current" />
+                </UpdateFunction>
+                <DeleteFunction FunctionName="Хранилище ORTModel.Del_Category_Graduant" >
+                  <ScalarProperty Name="ID_Category" ParameterName="delcategory" />
+                </DeleteFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="District_town_">
             <EntityTypeMapping TypeName="ORTModel.District_town_">
@@ -2248,6 +2276,24 @@
                 <ScalarProperty Name="Password_district" ColumnName="Password_district" />
                 <ScalarProperty Name="Region" ColumnName="Region" />
               </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="ORTModel.District_town_">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="Хранилище ORTModel.Add_District" >
+                  <ScalarProperty Name="Region" ParameterName="region" />
+                  <ScalarProperty Name="Password_district" ParameterName="passworddistrict" />
+                  <ScalarProperty Name="District_name" ParameterName="districtname" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="Хранилище ORTModel.Up_District" >
+                  <ScalarProperty Name="Region" ParameterName="UpRegion" Version="Current" />
+                  <ScalarProperty Name="Password_district" ParameterName="UpPassworddistrict" Version="Current" />
+                  <ScalarProperty Name="District_name" ParameterName="UpDistrictname" Version="Current" />
+                  <ScalarProperty Name="ID_District" ParameterName="idDistrict" Version="Current" />
+                </UpdateFunction>
+                <DeleteFunction FunctionName="Хранилище ORTModel.Del_Distrit" >
+                  <ScalarProperty Name="ID_District" ParameterName="deldistrittown" />
+                </DeleteFunction>
+              </ModificationFunctionMapping>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Employees">
@@ -2271,6 +2317,27 @@
                 <ScalarProperty Name="School" ColumnName="School" />
                 <ScalarProperty Name="Authotization" ColumnName="Authotization" />
               </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="ORTModel.Employees">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="Хранилище ORTModel.Add_Employee" >
+                  <ScalarProperty Name="School" ParameterName="school" />
+                  <ScalarProperty Name="District" ParameterName="district" />
+                  <ScalarProperty Name="Access_level" ParameterName="accesslevel" />
+                  <ScalarProperty Name="Position" ParameterName="position" />
+                  <ScalarProperty Name="Fired" ParameterName="fired" />
+                  <ScalarProperty Name="Date_of_appointment" ParameterName="dateofappointment" />
+                  <ScalarProperty Name="Email" ParameterName="email" />
+                  <ScalarProperty Name="Address" ParameterName="adress" />
+                  <ScalarProperty Name="INN_passport" ParameterName="innpassport" />
+                  <ScalarProperty Name="Phone_number" ParameterName="phonenumber" />
+                  <ScalarProperty Name="Gender" ParameterName="gender" />
+                  <ScalarProperty Name="Birth_date" ParameterName="birthdate" />
+                  <ScalarProperty Name="Third_Name" ParameterName="thirdname" />
+                  <ScalarProperty Name="First_name" ParameterName="firstname" />
+                  <ScalarProperty Name="Surname" ParameterName="surname" />
+                </InsertFunction>
+              </ModificationFunctionMapping>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Fired_Employee">
@@ -2317,6 +2384,20 @@
                 <ScalarProperty Name="Language_name" ColumnName="Language_name" />
               </MappingFragment>
             </EntityTypeMapping>
+            <EntityTypeMapping TypeName="ORTModel.Language">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="Хранилище ORTModel.Add_Language" >
+                  <ScalarProperty Name="Language_name" ParameterName="Language_Name" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="Хранилище ORTModel.Up_Language" >
+                  <ScalarProperty Name="Language_name" ParameterName="UpLanguage_Name" Version="Current" />
+                  <ScalarProperty Name="id_language" ParameterName="idlanguage" Version="Current" />
+                </UpdateFunction>
+                <DeleteFunction FunctionName="Хранилище ORTModel.Del_Language" >
+                  <ScalarProperty Name="id_language" ParameterName="idlanguage" />
+                </DeleteFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Limit_of_time">
             <EntityTypeMapping TypeName="ORTModel.Limit_of_time">
@@ -2326,6 +2407,24 @@
                 <ScalarProperty Name="Limit_start" ColumnName="Limit_start" />
                 <ScalarProperty Name="Limit_end" ColumnName="Limit_end" />
               </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="ORTModel.Limit_of_time">
+              <ModificationFunctionMapping>
+                <UpdateFunction FunctionName="Хранилище ORTModel.Up_Limit_of_time" >
+                  <ScalarProperty Name="Limit_end" ParameterName="UpLimitEnd" Version="Current" />
+                  <ScalarProperty Name="Limit_start" ParameterName="UpLimiStart" Version="Current" />
+                  <ScalarProperty Name="Date_of_limit" ParameterName="UpDateoflimit" Version="Current" />
+                  <ScalarProperty Name="ID_Time" ParameterName="UpidTime" Version="Current" />
+                </UpdateFunction>
+                <DeleteFunction FunctionName="Хранилище ORTModel.Del_Limit_of_time" >
+                  <ScalarProperty Name="ID_Time" ParameterName="dellimioftime" />
+                </DeleteFunction>
+                <InsertFunction FunctionName="Хранилище ORTModel.Add_limit_of_time" >
+                  <ScalarProperty Name="Limit_end" ParameterName="limitend" />
+                  <ScalarProperty Name="Limit_start" ParameterName="limitstart" />
+                  <ScalarProperty Name="Date_of_limit" ParameterName="dateoflimit" />
+                </InsertFunction>
+              </ModificationFunctionMapping>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Position">
@@ -2366,6 +2465,20 @@
                 <ScalarProperty Name="Region_name" ColumnName="Region_name" />
               </MappingFragment>
             </EntityTypeMapping>
+            <EntityTypeMapping TypeName="ORTModel.Region">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="Хранилище ORTModel.Add_Region" >
+                  <ScalarProperty Name="Region_name" ParameterName="regionname" />
+                </InsertFunction>
+                <DeleteFunction FunctionName="Хранилище ORTModel.Del_Region" >
+                  <ScalarProperty Name="ID_Region" ParameterName="delregion" />
+                </DeleteFunction>
+                <UpdateFunction FunctionName="Хранилище ORTModel.Up_Region" >
+                  <ScalarProperty Name="ID_Region" ParameterName="UpidRegion" Version="Current" />
+                  <ScalarProperty Name="Region_name" ParameterName="UpRegionname" Version="Current" />
+                </UpdateFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="School">
             <EntityTypeMapping TypeName="ORTModel.School">
@@ -2379,6 +2492,32 @@
                 <ScalarProperty Name="LocalityAddress" ColumnName="LocalityAddress" />
                 <ScalarProperty Name="District" ColumnName="District" />
               </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="ORTModel.School">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="Хранилище ORTModel.Add_School" >
+                  <ScalarProperty Name="LocalityAddress" ParameterName="localiatyaddresss" />
+                  <ScalarProperty Name="LocalitiName" ParameterName="localiatynamee" />
+                  <ScalarProperty Name="District" ParameterName="district" />
+                  <ScalarProperty Name="Password_school" ParameterName="passwordschool" />
+                  <ScalarProperty Name="Code_of_school" ParameterName="codeofschool" />
+                  <ScalarProperty Name="Postal_zip" ParameterName="postalzip" />
+                  <ScalarProperty Name="School_name" ParameterName="schoolname" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="Хранилище ORTModel.Up_School" >
+                  <ScalarProperty Name="LocalityAddress" ParameterName="UpAddressLocality" Version="Current" />
+                  <ScalarProperty Name="LocalitiName" ParameterName="UpNameLocality" Version="Current" />
+                  <ScalarProperty Name="District" ParameterName="UpDistritSchool" Version="Current" />
+                  <ScalarProperty Name="Password_school" ParameterName="UpPasswordSchool" Version="Current" />
+                  <ScalarProperty Name="Code_of_school" ParameterName="UpCodeOfSchool" Version="Current" />
+                  <ScalarProperty Name="Postal_zip" ParameterName="UpPostalzip" Version="Current" />
+                  <ScalarProperty Name="School_name" ParameterName="UpSchoolname" Version="Current" />
+                  <ScalarProperty Name="ID_School" ParameterName="IdSchool" Version="Current" />
+                </UpdateFunction>
+                <DeleteFunction FunctionName="Хранилище ORTModel.Del_School_locialty" >
+                  <ScalarProperty Name="ID_School" ParameterName="Schoollocialty" />
+                </DeleteFunction>
+              </ModificationFunctionMapping>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Subject">
