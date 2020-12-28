@@ -1,4 +1,4 @@
-﻿// Создание кода T4 для модели "C:\Users\Samat\source\repos\ORT_Project\ORT_Project\Models\ModelORT_DB.edmx" включено. 
+﻿// Создание кода T4 для модели "C:\Users\vex\source\repos\Rheonita\ORT_Project\ORT_Project\Models\ModelORT_DB.edmx" включено. 
 // Чтобы включить формирование кода прежних версий, измените значение свойства "Стратегия создания кода" конструктора
 // на "Legacy ObjectContext". Это свойство доступно в окне "Свойства", если модель
 // открыта в конструкторе.

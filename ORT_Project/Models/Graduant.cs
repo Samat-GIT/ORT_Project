@@ -20,6 +20,7 @@ namespace ORT_Project.Models
             this.Access_ticket = new HashSet<Access_ticket>();
             this.Reatinship_Graduent_and_Subject_ = new HashSet<Reatinship_Graduent_and_Subject_>();
             this.Receipt = new HashSet<Receipt>();
+            this.SignaturesTable = new HashSet<SignaturesTable>();
         }
     
         public int ID_Graduant { get; set; }
@@ -55,5 +56,7 @@ namespace ORT_Project.Models
         public virtual ICollection<Reatinship_Graduent_and_Subject_> Reatinship_Graduent_and_Subject_ { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Receipt> Receipt { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SignaturesTable> SignaturesTable { get; set; }
     }
 }

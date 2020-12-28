@@ -1,18 +1,18 @@
 ﻿@model IEnumerable<ORT_Project.Models.Access_level>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Уровень доступа";
 }
 
-<h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Добавить новую", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Access_level1)
+            @*@Html.DisplayNameFor(model => model.Access_level1)*@
+            Уровень доступа
         </th>
         <th></th>
     </tr>
@@ -23,9 +23,9 @@
             @Html.DisplayFor(modelItem => item.Access_level1)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID_access_level }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID_access_level }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID_access_level })
+            @Html.ActionLink("Редактировать", "Edit", new { id=item.ID_access_level }) |
+            @Html.ActionLink("Подробности", "Details", new { id=item.ID_access_level }) |
+            @Html.ActionLink("Удалить", "Delete", new { id=item.ID_access_level })
         </td>
     </tr>
 }

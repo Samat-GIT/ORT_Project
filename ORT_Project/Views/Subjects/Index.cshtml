@@ -1,21 +1,23 @@
 ﻿@model IEnumerable<ORT_Project.Models.Subject>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Список предметов";
 }
 
-<h2>Index</h2>
+<h2>Предметы на ОРТ</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Добавить новый", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Subject_name)
+            @*@Html.DisplayNameFor(model => model.Subject_name)*@
+            Наименование предмета
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Subject_Price)
+            @*@Html.DisplayNameFor(model => model.Subject_Price)*@
+            Цена предмета
         </th>
         <th></th>
     </tr>
@@ -29,9 +31,8 @@
             @Html.DisplayFor(modelItem => item.Subject_Price)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID_Subject }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID_Subject }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID_Subject })
+            @Html.ActionLink("Ред.", "Edit", new { id=item.ID_Subject }) |
+            @Html.ActionLink("Удалить", "Delete", new { id=item.ID_Subject })
         </td>
     </tr>
 }

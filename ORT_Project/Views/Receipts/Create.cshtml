@@ -1,10 +1,10 @@
 ﻿@model ORT_Project.Models.Receipt
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Добавление данных об оплате";
 }
 
-<h2>Create</h2>
+<h2>Добавление</h2>
 
 
 @using (Html.BeginForm()) 
@@ -12,11 +12,11 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Receipt</h4>
+        <h4>Квитанция</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.Receipt_num, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Receipt_num,"Номер квитанции", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Receipt_num, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Receipt_num, "", new { @class = "text-danger" })
@@ -24,7 +24,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Receipt_sum, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Receipt_sum, "Сумма квитанции", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Receipt_sum, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Receipt_sum, "", new { @class = "text-danger" })
@@ -32,7 +32,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Payment_Date, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Payment_Date, "Дата оплаты", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Payment_Date, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Payment_Date, "", new { @class = "text-danger" })
@@ -40,7 +40,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Bank_branch_num, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Bank_branch_num, "Банковские данные:", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Bank_branch_num, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Bank_branch_num, "", new { @class = "text-danger" })
@@ -48,7 +48,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.School, "School", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.School, "Школа: ", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("School", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.School, "", new { @class = "text-danger" })
@@ -56,7 +56,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Head_of_teacher, "Head_of_teacher", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Head_of_teacher, "Оплативший", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("Head_of_teacher", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Head_of_teacher, "", new { @class = "text-danger" })
@@ -64,7 +64,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Graduent, "Graduent", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Graduent, "Выпускник: ", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("Graduent", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Graduent, "", new { @class = "text-danger" })
@@ -80,7 +80,7 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Вернуться к списку", "Index")
 </div>
 
 @section Scripts {

@@ -41,6 +41,8 @@
         <AssociationConnector Association="ORTModel.FK_Receipt_Graduant" ManuallyRouted="false" />
         <AssociationConnector Association="ORTModel.FK_Reatinship_Graduent_and_Subject__Subject" ManuallyRouted="false" />
         <AssociationConnector Association="ORTModel.FK_Receipt_School" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ORTModel.SignaturesTable" Width="1.5" PointX="8.25" PointY="13.125" />
+        <AssociationConnector Association="ORTModel.FK_SignaturesTable_Graduant" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

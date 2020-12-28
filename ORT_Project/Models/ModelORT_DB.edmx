@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище ORTModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище ORTModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Access_level">
           <Key>
             <PropertyRef Name="ID_access_level" />
@@ -169,6 +169,15 @@
           <Property Name="LocalitiName" Type="nvarchar" MaxLength="50" />
           <Property Name="LocalityAddress" Type="nvarchar(max)" />
           <Property Name="District" Type="smallint" />
+        </EntityType>
+        <EntityType Name="SignaturesTable">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FK_Graduant" Type="int" Nullable="false" />
+          <Property Name="Photo3x4" Type="varchar(max)" />
+          <Property Name="PhotoSignature" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="Subject">
           <Key>
@@ -419,6 +428,18 @@
             </Principal>
             <Dependent Role="School">
               <PropertyRef Name="District" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SignaturesTable_Graduant">
+          <End Role="Graduant" Type="Self.Graduant" Multiplicity="1" />
+          <End Role="SignaturesTable" Type="Self.SignaturesTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Graduant">
+              <PropertyRef Name="ID_Graduant" />
+            </Principal>
+            <Dependent Role="SignaturesTable">
+              <PropertyRef Name="FK_Graduant" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -986,6 +1007,7 @@
           <EntitySet Name="Receipt" EntityType="Self.Receipt" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Region" EntityType="Self.Region" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="School" EntityType="Self.School" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SignaturesTable" EntityType="Self.SignaturesTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Subject" EntityType="Self.Subject" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Access_ticket_Graduant" Association="Self.FK_Access_ticket_Graduant">
@@ -1064,9 +1086,12 @@
             <End Role="District(town)" EntitySet="District(town)" />
             <End Role="School" EntitySet="School" />
           </AssociationSet>
+          <AssociationSet Name="FK_SignaturesTable_Graduant" Association="Self.FK_SignaturesTable_Graduant">
+            <End Role="Graduant" EntitySet="Graduant" />
+            <End Role="SignaturesTable" EntitySet="SignaturesTable" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ORTModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -1195,6 +1220,7 @@
           <NavigationProperty Name="School1" Relationship="Self.FK_Graduant_School" FromRole="Graduant" ToRole="School" />
           <NavigationProperty Name="Reatinship_Graduent_and_Subject_" Relationship="Self.FK_Reatinship_Graduent_and_Subject__Graduant" FromRole="Graduant" ToRole="Reatinship_Graduent_and_Subject_" />
           <NavigationProperty Name="Receipt" Relationship="Self.FK_Receipt_Graduant" FromRole="Graduant" ToRole="Receipt" />
+          <NavigationProperty Name="SignaturesTable" Relationship="ORTModel.FK_SignaturesTable_Graduant" FromRole="Graduant" ToRole="SignaturesTable" />
         </EntityType>
         <EntityType Name="Language">
           <Key>
@@ -1620,7 +1646,7 @@
             <End Role="Receipt" EntitySet="Receipt" />
           </AssociationSet>
           <FunctionImport Name="Add_Access_level" ReturnType="Collection(Decimal)">
-            <Parameter Name="accesslevel" Mode="In" Type="String" />
+          <Parameter Name="accesslevel" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="Add_Access_ticet" ReturnType="Collection(Decimal)">
             <Parameter Name="photo_3x4" Mode="In" Type="String" />
@@ -1632,7 +1658,7 @@
             <Parameter Name="graduent" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="Add_Category_Graduant" ReturnType="Collection(Decimal)">
-            <Parameter Name="category" Mode="In" Type="String" />
+          <Parameter Name="category" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="Add_District" ReturnType="Collection(Decimal)">
             <Parameter Name="districtname" Mode="In" Type="String" />
@@ -1705,7 +1731,7 @@
             <Parameter Name="school" Mode="In" Type="Int16" />
           </FunctionImport>
           <FunctionImport Name="Add_Language">
-            <Parameter Name="Language_Name" Mode="In" Type="String" />
+          <Parameter Name="Language_Name" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="Add_limit_of_time" ReturnType="Collection(Decimal)">
             <Parameter Name="dateoflimit" Mode="In" Type="DateTime" />
@@ -1722,7 +1748,7 @@
             <Parameter Name="graduent" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="Add_Region" ReturnType="Collection(Decimal)">
-            <Parameter Name="regionname" Mode="In" Type="String" />
+          <Parameter Name="regionname" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="Add_School" ReturnType="Collection(Decimal)">
             <Parameter Name="schoolname" Mode="In" Type="String" />
@@ -1738,37 +1764,37 @@
             <Parameter Name="Subject_Price" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="Del_Access_level">
-            <Parameter Name="delaccesslevel" Mode="In" Type="Byte" />
+          <Parameter Name="delaccesslevel" Mode="In" Type="Byte" />
           </FunctionImport>
           <FunctionImport Name="Del_Category_Graduant">
-            <Parameter Name="delcategory" Mode="In" Type="Byte" />
+          <Parameter Name="delcategory" Mode="In" Type="Byte" />
           </FunctionImport>
           <FunctionImport Name="Del_Distrit">
-            <Parameter Name="deldistrittown" Mode="In" Type="Int16" />
+          <Parameter Name="deldistrittown" Mode="In" Type="Int16" />
           </FunctionImport>
           <FunctionImport Name="Del_Employee">
-            <Parameter Name="delEmplyee" Mode="In" Type="Int32" />
+          <Parameter Name="delEmplyee" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="Del_Graduant">
-            <Parameter Name="delgraduantlocality" Mode="In" Type="Int16" />
+          <Parameter Name="delgraduantlocality" Mode="In" Type="Int16" />
           </FunctionImport>
           <FunctionImport Name="Del_Language">
-            <Parameter Name="idlanguage" Mode="In" Type="Byte" />
+          <Parameter Name="idlanguage" Mode="In" Type="Byte" />
           </FunctionImport>
           <FunctionImport Name="Del_Limit_of_time">
-            <Parameter Name="dellimioftime" Mode="In" Type="Int16" />
+          <Parameter Name="dellimioftime" Mode="In" Type="Int16" />
           </FunctionImport>
           <FunctionImport Name="Del_Postion">
-            <Parameter Name="delpostion" Mode="In" Type="Byte" />
+          <Parameter Name="delpostion" Mode="In" Type="Byte" />
           </FunctionImport>
           <FunctionImport Name="Del_Region">
-            <Parameter Name="delregion" Mode="In" Type="Byte" />
+          <Parameter Name="delregion" Mode="In" Type="Byte" />
           </FunctionImport>
           <FunctionImport Name="Del_School_locialty">
-            <Parameter Name="Schoollocialty" Mode="In" Type="Int16" />
+          <Parameter Name="Schoollocialty" Mode="In" Type="Int16" />
           </FunctionImport>
           <FunctionImport Name="Del_Subject">
-            <Parameter Name="delsubject" Mode="In" Type="Byte" />
+          <Parameter Name="delsubject" Mode="In" Type="Byte" />
           </FunctionImport>
           <FunctionImport Name="GetHeadOfTeacher" ReturnType="Collection(ORTModel.GetHeadOfTeacher_Result)" />
           <FunctionImport Name="sp_alterdiagram">
@@ -1923,7 +1949,7 @@
             <Parameter Name="UpSchool" Mode="In" Type="Int16" />
           </FunctionImport>
           <FunctionImport Name="Up_Employees_Date_leaving_Fired">
-            <Parameter Name="UpDate_leaving_Fired" Mode="In" Type="DateTime" />
+          <Parameter Name="UpDate_leaving_Fired" Mode="In" Type="DateTime" />
           </FunctionImport>
           <FunctionImport Name="Up_Employees_Receipt_Bank_b_num">
             <Parameter Name="idEmployeees" Mode="In" Type="Int32" />
@@ -2166,6 +2192,11 @@
             <Parameter Name="UpSubject_name" Mode="In" Type="String" />
             <Parameter Name="UpSubject_Price" Mode="In" Type="Decimal" />
           </FunctionImport>
+          <EntitySet Name="SignaturesTable" EntityType="ORTModel.SignaturesTable" />
+          <AssociationSet Name="FK_SignaturesTable_Graduant" Association="ORTModel.FK_SignaturesTable_Graduant">
+            <End Role="Graduant" EntitySet="Graduant" />
+            <End Role="SignaturesTable" EntitySet="SignaturesTable" />
+          </AssociationSet>
         </EntityContainer>
         <ComplexType Name="GetHeadOfTeacher_Result">
           <Property Type="String" Name="Surname" Nullable="false" MaxLength="50" />
@@ -2195,6 +2226,28 @@
           <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
           <Property Type="Int32" Name="OwnerID" Nullable="false" />
         </ComplexType>
+        <EntityType Name="SignaturesTable">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FK_Graduant" Type="Int32" Nullable="false" />
+          <Property Name="Photo3x4" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PhotoSignature" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Graduant" Relationship="ORTModel.FK_SignaturesTable_Graduant" FromRole="SignaturesTable" ToRole="Graduant" />
+        </EntityType>
+        <Association Name="FK_SignaturesTable_Graduant">
+          <End Type="ORTModel.Graduant" Role="Graduant" Multiplicity="1" />
+          <End Type="ORTModel.SignaturesTable" Role="SignaturesTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Graduant">
+              <PropertyRef Name="ID_Graduant" />
+            </Principal>
+            <Dependent Role="SignaturesTable">
+              <PropertyRef Name="FK_Graduant" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2317,27 +2370,6 @@
                 <ScalarProperty Name="School" ColumnName="School" />
                 <ScalarProperty Name="Authotization" ColumnName="Authotization" />
               </MappingFragment>
-            </EntityTypeMapping>
-            <EntityTypeMapping TypeName="ORTModel.Employees">
-              <ModificationFunctionMapping>
-                <InsertFunction FunctionName="Хранилище ORTModel.Add_Employee" >
-                  <ScalarProperty Name="School" ParameterName="school" />
-                  <ScalarProperty Name="District" ParameterName="district" />
-                  <ScalarProperty Name="Access_level" ParameterName="accesslevel" />
-                  <ScalarProperty Name="Position" ParameterName="position" />
-                  <ScalarProperty Name="Fired" ParameterName="fired" />
-                  <ScalarProperty Name="Date_of_appointment" ParameterName="dateofappointment" />
-                  <ScalarProperty Name="Email" ParameterName="email" />
-                  <ScalarProperty Name="Address" ParameterName="adress" />
-                  <ScalarProperty Name="INN_passport" ParameterName="innpassport" />
-                  <ScalarProperty Name="Phone_number" ParameterName="phonenumber" />
-                  <ScalarProperty Name="Gender" ParameterName="gender" />
-                  <ScalarProperty Name="Birth_date" ParameterName="birthdate" />
-                  <ScalarProperty Name="Third_Name" ParameterName="thirdname" />
-                  <ScalarProperty Name="First_name" ParameterName="firstname" />
-                  <ScalarProperty Name="Surname" ParameterName="surname" />
-                </InsertFunction>
-              </ModificationFunctionMapping>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Fired_Employee">
@@ -2704,6 +2736,16 @@
           <FunctionImportMapping FunctionImportName="Up_School_Postal_zip" FunctionName="Хранилище ORTModel.Up_School_Postal_zip" />
           <FunctionImportMapping FunctionImportName="UpCost_of_Test" FunctionName="Хранилище ORTModel.UpCost_of_Test" />
           <FunctionImportMapping FunctionImportName="UpSubject" FunctionName="Хранилище ORTModel.UpSubject" />
+          <EntitySetMapping Name="SignaturesTable">
+            <EntityTypeMapping TypeName="ORTModel.SignaturesTable">
+              <MappingFragment StoreEntitySet="SignaturesTable">
+                <ScalarProperty Name="PhotoSignature" ColumnName="PhotoSignature" />
+                <ScalarProperty Name="Photo3x4" ColumnName="Photo3x4" />
+                <ScalarProperty Name="FK_Graduant" ColumnName="FK_Graduant" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -1,63 +1,78 @@
 ﻿@model IEnumerable<ORT_Project.Models.Employees>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Сотрудники";
 }
 
-<h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Добавить нового", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Surname)
+            @*@Html.DisplayNameFor(model => model.Surname)*@
+            Фамилия
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.First_name)
+            @*@Html.DisplayNameFor(model => model.First_name)*@
+            Имя
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Third_Name)
+            @*@Html.DisplayNameFor(model => model.Third_Name)*@
+            Отчество
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Birth_date)
+            @*@Html.DisplayNameFor(model => model.Birth_date)*@
+            Дата рождения
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Gender)
+            @*@Html.DisplayNameFor(model => model.Gender)*@
+            Пол
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Phone_number)
+            @*@Html.DisplayNameFor(model => model.Phone_number)*@
+            Номер телефона
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.INN_passport)
+            @*@Html.DisplayNameFor(model => model.INN_passport)*@
+            ИНН
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Address)
+            @*@Html.DisplayNameFor(model => model.Address)*@
+            Адрес
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Email)
+            @*@Html.DisplayNameFor(model => model.Email)*@
+            Почта
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Date_of_appointment)
+            @*@Html.DisplayNameFor(model => model.Date_of_appointment)*@
+            Дата назначения
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Fired)
+            @*@Html.DisplayNameFor(model => model.Fired)*@
+            Статус увольнения
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Access_level1.Access_level1)
+            @*@Html.DisplayNameFor(model => model.Access_level1.Access_level1)*@
+            Уровень доступа
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Authorization.Login)
+            @*@Html.DisplayNameFor(model => model.Authorization.Login)*@
+            Логин авторизации
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.District_town_.District_name)
+            @*@Html.DisplayNameFor(model => model.District_town_.District_name)*@
+            Название района
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Position1.Position_Name)
+            @*@Html.DisplayNameFor(model => model.Position1.Position_Name)*@
+            Должность
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.School1.School_name)
+            @*@Html.DisplayNameFor(model => model.School1.School_name)*@
+            Школа
         </th>
         <th></th>
     </tr>
@@ -113,9 +128,8 @@
             @Html.DisplayFor(modelItem => item.School1.School_name)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID_Employee }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID_Employee }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID_Employee })
+            @Html.ActionLink("Ред.", "Edit", new { id=item.ID_Employee }) |
+            @Html.ActionLink("Удалить", "Delete", new { id=item.ID_Employee })
         </td>
     </tr>
 }

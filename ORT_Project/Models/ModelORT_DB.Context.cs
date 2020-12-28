@@ -44,6 +44,7 @@ namespace ORT_Project.Models
         public virtual DbSet<School> School { get; set; }
         public virtual DbSet<Subject> Subject { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<SignaturesTable> SignaturesTable { get; set; }
     
         public virtual ObjectResult<Nullable<decimal>> Add_Access_level(string accesslevel)
         {
