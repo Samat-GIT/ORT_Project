@@ -170,15 +170,6 @@
           <Property Name="LocalityAddress" Type="nvarchar(max)" />
           <Property Name="District" Type="smallint" />
         </EntityType>
-        <EntityType Name="SignaturesTable">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="FK_Graduant" Type="int" Nullable="false" />
-          <Property Name="Photo3x4" Type="varchar(max)" />
-          <Property Name="PhotoSignature" Type="varchar(max)" />
-        </EntityType>
         <EntityType Name="Subject">
           <Key>
             <PropertyRef Name="ID_Subject" />
@@ -428,18 +419,6 @@
             </Principal>
             <Dependent Role="School">
               <PropertyRef Name="District" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_SignaturesTable_Graduant">
-          <End Role="Graduant" Type="Self.Graduant" Multiplicity="1" />
-          <End Role="SignaturesTable" Type="Self.SignaturesTable" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Graduant">
-              <PropertyRef Name="ID_Graduant" />
-            </Principal>
-            <Dependent Role="SignaturesTable">
-              <PropertyRef Name="FK_Graduant" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1007,7 +986,6 @@
           <EntitySet Name="Receipt" EntityType="Self.Receipt" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Region" EntityType="Self.Region" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="School" EntityType="Self.School" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="SignaturesTable" EntityType="Self.SignaturesTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Subject" EntityType="Self.Subject" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Access_ticket_Graduant" Association="Self.FK_Access_ticket_Graduant">
@@ -1085,10 +1063,6 @@
           <AssociationSet Name="FK_School_District(town)" Association="Self.FK_School_District(town)">
             <End Role="District(town)" EntitySet="District(town)" />
             <End Role="School" EntitySet="School" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SignaturesTable_Graduant" Association="Self.FK_SignaturesTable_Graduant">
-            <End Role="Graduant" EntitySet="Graduant" />
-            <End Role="SignaturesTable" EntitySet="SignaturesTable" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -1220,7 +1194,6 @@
           <NavigationProperty Name="School1" Relationship="Self.FK_Graduant_School" FromRole="Graduant" ToRole="School" />
           <NavigationProperty Name="Reatinship_Graduent_and_Subject_" Relationship="Self.FK_Reatinship_Graduent_and_Subject__Graduant" FromRole="Graduant" ToRole="Reatinship_Graduent_and_Subject_" />
           <NavigationProperty Name="Receipt" Relationship="Self.FK_Receipt_Graduant" FromRole="Graduant" ToRole="Receipt" />
-          <NavigationProperty Name="SignaturesTable" Relationship="ORTModel.FK_SignaturesTable_Graduant" FromRole="Graduant" ToRole="SignaturesTable" />
         </EntityType>
         <EntityType Name="Language">
           <Key>
@@ -2192,11 +2165,6 @@
             <Parameter Name="UpSubject_name" Mode="In" Type="String" />
             <Parameter Name="UpSubject_Price" Mode="In" Type="Decimal" />
           </FunctionImport>
-          <EntitySet Name="SignaturesTable" EntityType="ORTModel.SignaturesTable" />
-          <AssociationSet Name="FK_SignaturesTable_Graduant" Association="ORTModel.FK_SignaturesTable_Graduant">
-            <End Role="Graduant" EntitySet="Graduant" />
-            <End Role="SignaturesTable" EntitySet="SignaturesTable" />
-          </AssociationSet>
         </EntityContainer>
         <ComplexType Name="GetHeadOfTeacher_Result">
           <Property Type="String" Name="Surname" Nullable="false" MaxLength="50" />
@@ -2226,28 +2194,6 @@
           <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
           <Property Type="Int32" Name="OwnerID" Nullable="false" />
         </ComplexType>
-        <EntityType Name="SignaturesTable">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FK_Graduant" Type="Int32" Nullable="false" />
-          <Property Name="Photo3x4" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="PhotoSignature" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Graduant" Relationship="ORTModel.FK_SignaturesTable_Graduant" FromRole="SignaturesTable" ToRole="Graduant" />
-        </EntityType>
-        <Association Name="FK_SignaturesTable_Graduant">
-          <End Type="ORTModel.Graduant" Role="Graduant" Multiplicity="1" />
-          <End Type="ORTModel.SignaturesTable" Role="SignaturesTable" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Graduant">
-              <PropertyRef Name="ID_Graduant" />
-            </Principal>
-            <Dependent Role="SignaturesTable">
-              <PropertyRef Name="FK_Graduant" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2736,16 +2682,6 @@
           <FunctionImportMapping FunctionImportName="Up_School_Postal_zip" FunctionName="Хранилище ORTModel.Up_School_Postal_zip" />
           <FunctionImportMapping FunctionImportName="UpCost_of_Test" FunctionName="Хранилище ORTModel.UpCost_of_Test" />
           <FunctionImportMapping FunctionImportName="UpSubject" FunctionName="Хранилище ORTModel.UpSubject" />
-          <EntitySetMapping Name="SignaturesTable">
-            <EntityTypeMapping TypeName="ORTModel.SignaturesTable">
-              <MappingFragment StoreEntitySet="SignaturesTable">
-                <ScalarProperty Name="PhotoSignature" ColumnName="PhotoSignature" />
-                <ScalarProperty Name="Photo3x4" ColumnName="Photo3x4" />
-                <ScalarProperty Name="FK_Graduant" ColumnName="FK_Graduant" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

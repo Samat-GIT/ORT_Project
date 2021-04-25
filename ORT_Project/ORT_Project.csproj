@@ -143,7 +143,6 @@
     <Compile Include="Controllers\ReceiptsController.cs" />
     <Compile Include="Controllers\RegionsController.cs" />
     <Compile Include="Controllers\SchoolsController.cs" />
-    <Compile Include="Controllers\SignatureController.cs" />
     <Compile Include="Controllers\SubjectsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -209,9 +208,6 @@
       <DependentUpon>ModelORT_DB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\School.cs">
-      <DependentUpon>ModelORT_DB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\SignaturesTable.cs">
       <DependentUpon>ModelORT_DB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sp_helpdiagramdefinition_Result.cs">
@@ -356,9 +352,6 @@
     <Content Include="Views\Schools\Details.cshtml" />
     <Content Include="Views\Schools\Edit.cshtml" />
     <Content Include="Views\Schools\Index.cshtml" />
-    <Content Include="Views\Signature\Add.cshtml" />
-    <Content Include="Views\Signature\ShowView.cshtml" />
-    <Content Include="Views\Signature\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
