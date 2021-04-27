@@ -1,18 +1,19 @@
 ﻿@model IEnumerable<ORT_Project.Models.Region>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Работа с областями";
 }
 
-<h2>Index</h2>
+<h2>Области</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Создать запись", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Region_name)
+            @*@Html.DisplayNameFor(model => model.Region_name)*@
+            Области
         </th>
         <th></th>
     </tr>
@@ -23,9 +24,8 @@
             @Html.DisplayFor(modelItem => item.Region_name)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID_Region }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID_Region }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID_Region })
+            @Html.ActionLink("Редактировать", "Edit", new { id=item.ID_Region }) |
+            @Html.ActionLink("Удалить", "Delete", new { id=item.ID_Region })
         </td>
     </tr>
 }

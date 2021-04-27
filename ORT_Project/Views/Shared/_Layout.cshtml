@@ -34,7 +34,11 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Хоум", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @*@Html.ActionLink("Хоум", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
+                @*<a class="navbar-brand" href="@Url.Action("Index", "Home")">
+            <img src="../../Content/logo.png" alt="Site Logo" style="height:193px; width: 300px" />
+        </a>*@
+                <a class="navbar-brand" href="@Url.Action("Index", "Home")"> <span class="glyphicon glyphicon-home"></span> Главная </a>
             </div>
             @*Снизу идут комбобоксы для доступа к основным представлениям*@
             <div class="navbar-collapse collapse">
@@ -55,11 +59,12 @@
                     </li>
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <span class="glyphicon glyphicon-globe"> </span>
                             Работа с регионами
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="@Url.Action("Index", "Regions")">Регионы</a></li>
+                            <li><a href="@Url.Action("Index", "Regions")">Области</a></li>
                             <li><a href="@Url.Action("Index", "Schools")">Школы</a></li>
                             <li><a href="@Url.Action("Index", "District_town_")">Район(город)</a></li>
                         </ul>
@@ -106,7 +111,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - мое приложение ASP.NET</p>
+            <p>&copy; @DateTime.Now.Year - Общереспубликанское тестирование</p>
         </footer>
     </div>
 

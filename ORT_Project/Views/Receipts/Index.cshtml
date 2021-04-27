@@ -1,36 +1,43 @@
 ﻿@model IEnumerable<ORT_Project.Models.Receipt>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Список квитанций";
 }
 
-<h2>Index</h2>
+<h2>Инфо об оплате</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Добавить ", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Receipt_num)
+            @*@Html.DisplayNameFor(model => model.Receipt_num)*@
+            Номер квитанции
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Receipt_sum)
+            @*@Html.DisplayNameFor(model => model.Receipt_sum)*@
+            Сумма квитанции
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Payment_Date)
+            @*@Html.DisplayNameFor(model => model.Payment_Date)*@
+            Дата оплаты
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Bank_branch_num)
+            @*@Html.DisplayNameFor(model => model.Bank_branch_num)*@
+            Номер банка
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Employees.Surname)
+            @*@Html.DisplayNameFor(model => model.Employees.Surname)*@
+            Фамилия принявшего сотрудника
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Graduant.Sur_name)
+            @*@Html.DisplayNameFor(model => model.Graduant.Sur_name)*@
+            Фамилия выпускника
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.School1.School_name)
+            @*@Html.DisplayNameFor(model => model.School1.School_name)*@
+            Школа:
         </th>
         <th></th>
     </tr>
@@ -59,9 +66,8 @@
             @Html.DisplayFor(modelItem => item.School1.School_name)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID_Raceipt }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID_Raceipt }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID_Raceipt })
+            @Html.ActionLink("Ред", "Edit", new { id=item.ID_Raceipt }) |
+            @Html.ActionLink("Удалить", "Delete", new { id=item.ID_Raceipt })
         </td>
     </tr>
 }

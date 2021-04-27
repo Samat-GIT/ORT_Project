@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище ORTModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище ORTModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Access_level">
           <Key>
             <PropertyRef Name="ID_access_level" />
@@ -1065,8 +1065,7 @@
             <End Role="School" EntitySet="School" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ORTModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -1620,7 +1619,7 @@
             <End Role="Receipt" EntitySet="Receipt" />
           </AssociationSet>
           <FunctionImport Name="Add_Access_level" ReturnType="Collection(Decimal)">
-            <Parameter Name="accesslevel" Mode="In" Type="String" />
+          <Parameter Name="accesslevel" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="Add_Access_ticet" ReturnType="Collection(Decimal)">
             <Parameter Name="photo_3x4" Mode="In" Type="String" />
@@ -1632,7 +1631,7 @@
             <Parameter Name="graduent" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="Add_Category_Graduant" ReturnType="Collection(Decimal)">
-            <Parameter Name="category" Mode="In" Type="String" />
+          <Parameter Name="category" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="Add_District" ReturnType="Collection(Decimal)">
             <Parameter Name="districtname" Mode="In" Type="String" />
@@ -1705,7 +1704,7 @@
             <Parameter Name="school" Mode="In" Type="Int16" />
           </FunctionImport>
           <FunctionImport Name="Add_Language">
-            <Parameter Name="Language_Name" Mode="In" Type="String" />
+          <Parameter Name="Language_Name" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="Add_limit_of_time" ReturnType="Collection(Decimal)">
             <Parameter Name="dateoflimit" Mode="In" Type="DateTime" />
@@ -1722,7 +1721,7 @@
             <Parameter Name="graduent" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="Add_Region" ReturnType="Collection(Decimal)">
-            <Parameter Name="regionname" Mode="In" Type="String" />
+          <Parameter Name="regionname" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="Add_School" ReturnType="Collection(Decimal)">
             <Parameter Name="schoolname" Mode="In" Type="String" />
@@ -1738,37 +1737,37 @@
             <Parameter Name="Subject_Price" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="Del_Access_level">
-            <Parameter Name="delaccesslevel" Mode="In" Type="Byte" />
+          <Parameter Name="delaccesslevel" Mode="In" Type="Byte" />
           </FunctionImport>
           <FunctionImport Name="Del_Category_Graduant">
-            <Parameter Name="delcategory" Mode="In" Type="Byte" />
+          <Parameter Name="delcategory" Mode="In" Type="Byte" />
           </FunctionImport>
           <FunctionImport Name="Del_Distrit">
-            <Parameter Name="deldistrittown" Mode="In" Type="Int16" />
+          <Parameter Name="deldistrittown" Mode="In" Type="Int16" />
           </FunctionImport>
           <FunctionImport Name="Del_Employee">
-            <Parameter Name="delEmplyee" Mode="In" Type="Int32" />
+          <Parameter Name="delEmplyee" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="Del_Graduant">
-            <Parameter Name="delgraduantlocality" Mode="In" Type="Int16" />
+          <Parameter Name="delgraduantlocality" Mode="In" Type="Int16" />
           </FunctionImport>
           <FunctionImport Name="Del_Language">
-            <Parameter Name="idlanguage" Mode="In" Type="Byte" />
+          <Parameter Name="idlanguage" Mode="In" Type="Byte" />
           </FunctionImport>
           <FunctionImport Name="Del_Limit_of_time">
-            <Parameter Name="dellimioftime" Mode="In" Type="Int16" />
+          <Parameter Name="dellimioftime" Mode="In" Type="Int16" />
           </FunctionImport>
           <FunctionImport Name="Del_Postion">
-            <Parameter Name="delpostion" Mode="In" Type="Byte" />
+          <Parameter Name="delpostion" Mode="In" Type="Byte" />
           </FunctionImport>
           <FunctionImport Name="Del_Region">
-            <Parameter Name="delregion" Mode="In" Type="Byte" />
+          <Parameter Name="delregion" Mode="In" Type="Byte" />
           </FunctionImport>
           <FunctionImport Name="Del_School_locialty">
-            <Parameter Name="Schoollocialty" Mode="In" Type="Int16" />
+          <Parameter Name="Schoollocialty" Mode="In" Type="Int16" />
           </FunctionImport>
           <FunctionImport Name="Del_Subject">
-            <Parameter Name="delsubject" Mode="In" Type="Byte" />
+          <Parameter Name="delsubject" Mode="In" Type="Byte" />
           </FunctionImport>
           <FunctionImport Name="GetHeadOfTeacher" ReturnType="Collection(ORTModel.GetHeadOfTeacher_Result)" />
           <FunctionImport Name="sp_alterdiagram">
@@ -1923,7 +1922,7 @@
             <Parameter Name="UpSchool" Mode="In" Type="Int16" />
           </FunctionImport>
           <FunctionImport Name="Up_Employees_Date_leaving_Fired">
-            <Parameter Name="UpDate_leaving_Fired" Mode="In" Type="DateTime" />
+          <Parameter Name="UpDate_leaving_Fired" Mode="In" Type="DateTime" />
           </FunctionImport>
           <FunctionImport Name="Up_Employees_Receipt_Bank_b_num">
             <Parameter Name="idEmployeees" Mode="In" Type="Int32" />
@@ -2317,27 +2316,6 @@
                 <ScalarProperty Name="School" ColumnName="School" />
                 <ScalarProperty Name="Authotization" ColumnName="Authotization" />
               </MappingFragment>
-            </EntityTypeMapping>
-            <EntityTypeMapping TypeName="ORTModel.Employees">
-              <ModificationFunctionMapping>
-                <InsertFunction FunctionName="Хранилище ORTModel.Add_Employee" >
-                  <ScalarProperty Name="School" ParameterName="school" />
-                  <ScalarProperty Name="District" ParameterName="district" />
-                  <ScalarProperty Name="Access_level" ParameterName="accesslevel" />
-                  <ScalarProperty Name="Position" ParameterName="position" />
-                  <ScalarProperty Name="Fired" ParameterName="fired" />
-                  <ScalarProperty Name="Date_of_appointment" ParameterName="dateofappointment" />
-                  <ScalarProperty Name="Email" ParameterName="email" />
-                  <ScalarProperty Name="Address" ParameterName="adress" />
-                  <ScalarProperty Name="INN_passport" ParameterName="innpassport" />
-                  <ScalarProperty Name="Phone_number" ParameterName="phonenumber" />
-                  <ScalarProperty Name="Gender" ParameterName="gender" />
-                  <ScalarProperty Name="Birth_date" ParameterName="birthdate" />
-                  <ScalarProperty Name="Third_Name" ParameterName="thirdname" />
-                  <ScalarProperty Name="First_name" ParameterName="firstname" />
-                  <ScalarProperty Name="Surname" ParameterName="surname" />
-                </InsertFunction>
-              </ModificationFunctionMapping>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Fired_Employee">
