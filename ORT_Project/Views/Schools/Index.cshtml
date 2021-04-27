@@ -1,36 +1,41 @@
 ﻿@model IEnumerable<ORT_Project.Models.School>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Учебные учреждения";
 }
 
-<h2>Index</h2>
+<h2>Список учебных учреждений</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Создать запись", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.School_name)
+            @*@Html.DisplayNameFor(model => model.School_name)*@
+            Учебное учреждение
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Postal_zip)
+           @* @Html.DisplayNameFor(model => model.Postal_zip)*@
+            Почтовый код
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Code_of_school)
+            @*@Html.DisplayNameFor(model => model.Code_of_school)*@
+            Код школы
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Password_school)
+           @* @Html.DisplayNameFor(model => model.Password_school)*@
+            Пароль школы
         </th>
+        <!--<th>-->
+            @*@Html.DisplayNameFor(model => model.LocalitiName)*@
+        <!--</th>
+        <th>-->
+            @*@Html.DisplayNameFor(model => model.LocalityAddress)*@
+        <!--</th>-->
         <th>
-            @Html.DisplayNameFor(model => model.LocalitiName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LocalityAddress)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.District_town_.District_name)
+           @* @Html.DisplayNameFor(model => model.District_town_.District_name)*@
+            Район
         </th>
         <th></th>
     </tr>
@@ -49,19 +54,19 @@
         <td>
             @Html.DisplayFor(modelItem => item.Password_school)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.LocalitiName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.LocalityAddress)
-        </td>
+        </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.District_town_.District_name)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID_School }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID_School }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID_School })
+            @Html.ActionLink("Редактировать", "Edit", new { id=item.ID_School }) |
+            @Html.ActionLink("Подробно", "Details", new { id=item.ID_School }) |
+            @Html.ActionLink("Удалить", "Delete", new { id=item.ID_School })
         </td>
     </tr>
 }

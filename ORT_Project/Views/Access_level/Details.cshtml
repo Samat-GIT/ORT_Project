@@ -1,17 +1,18 @@
 ﻿@model ORT_Project.Models.Access_level
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Подробности";
 }
 
-<h2>Details</h2>
+<h2>Подробности</h2>
 
 <div>
-    <h4>Access_level</h4>
+    <h4>Уровень доступа</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Access_level1)
+            @*@Html.DisplayNameFor(model => model.Access_level1)*@
+            Уровень доступа
         </dt>
 
         <dd>
@@ -21,6 +22,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_access_level }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Редактировать", "Edit", new { id = Model.ID_access_level }) |
+    @Html.ActionLink("Назад", "Index")
 </p>
