@@ -1,18 +1,19 @@
 ﻿@model ORT_Project.Models.Limit_of_time
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Ограничения по времени - удалить запись";
 }
 
-<h2>Delete</h2>
+<h2>Удалить запись</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Вы уверены что хотите удалить эту запись?</h3>
 <div>
-    <h4>Limit_of_time</h4>
+    <h4>Период ограничения</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Date_of_limit)
+            @*@Html.DisplayNameFor(model => model.Date_of_limit)*@
+            Дата установки ограничения
         </dt>
 
         <dd>
@@ -20,7 +21,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Limit_start)
+            @*@Html.DisplayNameFor(model => model.Limit_start)*@
+            Начала периода
         </dt>
 
         <dd>
@@ -28,7 +30,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Limit_end)
+            @*@Html.DisplayNameFor(model => model.Limit_end)*@
+            Конец периода
         </dt>
 
         <dd>
@@ -41,8 +44,8 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value="Удалить запись" class="btn btn-default" /> |
+            @Html.ActionLink("Назад", "Index")
         </div>
     }
 </div>

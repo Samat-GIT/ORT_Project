@@ -1,178 +1,194 @@
 ﻿@model ORT_Project.Models.Graduant
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Выпускники - подробно";
 }
 
-<h2>Details</h2>
+<h2>Подробно</h2>
 
 <div>
-    <h4>Graduant</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Sur_name)
-        </dt>
+        <h4>Данные выпускника</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @*@Html.DisplayNameFor(model => model.Sur_name)*@
+                Фамилия
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Sur_name)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Sur_name)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.First_name)
-        </dt>
+            <dt>
+                @*@Html.DisplayNameFor(model => model.First_name)*@
+                Имя
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.First_name)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.First_name)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Third_name)
-        </dt>
+            <dt>
+                @*@Html.DisplayNameFor(model => model.Third_name)*@
+                Отчество
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Third_name)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Third_name)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Birth_date)
-        </dt>
+            <dt>
+                @*@Html.DisplayNameFor(model => model.Birth_date)*@
+                Дата рождения
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Birth_date)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Birth_date)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Gender)
-        </dt>
+            <dt>
+                @*@Html.DisplayNameFor(model => model.Gender)*@
+                Пол
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Gender)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Gender)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Street)
-        </dt>
+            @*<dt>
+                @Html.DisplayNameFor(model => model.Street)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Street)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Street)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Microdistrict)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Microdistrict)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Microdistrict)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Microdistrict)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Apartment_House)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Apartment_House)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Apartment_House)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Apartment_House)
+            </dd>*@
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
+            <dt>
+                @*@Html.DisplayNameFor(model => model.Email)*@
+                Почтовый адрес
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Phone_number)
-        </dt>
+            <dt>
+                @*@Html.DisplayNameFor(model => model.Phone_number)*@
+                Номер телефона
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Phone_number)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Phone_number)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Diplom_number)
-        </dt>
+            <dt>
+                @*@Html.DisplayNameFor(model => model.Diplom_number)*@
+                Номер диплома
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Diplom_number)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Diplom_number)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Attestat_number)
-        </dt>
+            <dt>
+                @*@Html.DisplayNameFor(model => model.Attestat_number)*@
+                Номер аттестата
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Attestat_number)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Attestat_number)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Date_of_registr)
-        </dt>
+            <dt>
+                @*@Html.DisplayNameFor(model => model.Date_of_registr)*@
+                Дата регистрации
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Date_of_registr)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Date_of_registr)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.LocalityName)
-        </dt>
+            <dt>
+                @*@Html.DisplayNameFor(model => model.LocalityName)*@
+                Населенный пункт
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.LocalityName)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.LocalityName)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.LocalityAddress)
-        </dt>
+            <dt>
+                @*@Html.DisplayNameFor(model => model.LocalityAddress)*@
+                Адрес
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.LocalityAddress)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.LocalityAddress)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Authorization.Login)
-        </dt>
+            <dt>
+                @*@Html.DisplayNameFor(model => model.Authorization.Login)*@
+                Логин
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Authorization.Login)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Authorization.Login)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Category_Graduent.Category_Graduent1)
-        </dt>
+            <dt>
+                @*@Html.DisplayNameFor(model => model.Category_Graduent.Category_Graduent1)*@
+                Категория выпускника
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Category_Graduent.Category_Graduent1)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Category_Graduent.Category_Graduent1)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.District_town_.District_name)
-        </dt>
+            <dt>
+                @*@Html.DisplayNameFor(model => model.District_town_.District_name)*@
+                Район
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.District_town_.District_name)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.District_town_.District_name)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Language1.Language_name)
-        </dt>
+            @*<dt>
+                @Html.DisplayNameFor(model => model.Language1.Language_name)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Language1.Language_name)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Language1.Language_name)
+            </dd>*@
 
-        <dt>
-            @Html.DisplayNameFor(model => model.School1.School_name)
-        </dt>
+            <dt>
+                @*@Html.DisplayNameFor(model => model.School1.School_name)*@
+                Школа
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.School1.School_name)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.School1.School_name)
+            </dd>
 
-    </dl>
-</div>
+        </dl>
+    </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_Graduant }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Редактировать", "Edit", new { id = Model.ID_Graduant }) |
+    @Html.ActionLink("Назад", "Index")
 </p>

@@ -1,24 +1,23 @@
 ﻿@model IEnumerable<ORT_Project.Models.District_town_>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Районы";
 }
 
-<h2>Index</h2>
+<h2>Данные о районах</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Добавить запись", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.District_name)
+            @*@Html.DisplayNameFor(model => model.District_name)*@
+            Район
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Password_district)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Region1.Region_name)
+            @*@Html.DisplayNameFor(model => model.Region1.Region_name)*@
+            Область
         </th>
         <th></th>
     </tr>
@@ -29,15 +28,12 @@
             @Html.DisplayFor(modelItem => item.District_name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Password_district)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.Region1.Region_name)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID_District }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID_District }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID_District })
+            @Html.ActionLink("Редактировать", "Edit", new { id=item.ID_District }) |
+            @Html.ActionLink("Подробно", "Details", new { id=item.ID_District }) |
+            @Html.ActionLink("Удалить", "Delete", new { id=item.ID_District })
         </td>
     </tr>
 }

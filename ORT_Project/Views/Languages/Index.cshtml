@@ -1,18 +1,19 @@
 ﻿@model IEnumerable<ORT_Project.Models.Language>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Языки";
 }
 
-<h2>Index</h2>
+<h2>Данные языки</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Добавить запись", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Language_name)
+            @*@Html.DisplayNameFor(model => model.Language_name)*@
+            Язык
         </th>
         <th></th>
     </tr>
@@ -23,9 +24,8 @@
             @Html.DisplayFor(modelItem => item.Language_name)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id_language }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id_language }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id_language })
+            @Html.ActionLink("Редактировать", "Edit", new { id=item.id_language }) |
+            @Html.ActionLink("Удалить", "Delete", new { id=item.id_language })
         </td>
     </tr>
 }

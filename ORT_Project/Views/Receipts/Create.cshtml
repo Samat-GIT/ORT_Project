@@ -7,16 +7,16 @@
 <h2>Добавление</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Квитанция</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.Receipt_num,"Номер квитанции", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Receipt_num, "Номер квитанции", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Receipt_num, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Receipt_num, "", new { @class = "text-danger" })
@@ -26,7 +26,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Receipt_sum, "Сумма квитанции", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Receipt_sum, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Receipt_sum, new { htmlAttributes = new { @class = "form-control", placeholder = "Оплаченная в банке сумма" } })
                 @Html.ValidationMessageFor(model => model.Receipt_sum, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -34,7 +34,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Payment_Date, "Дата оплаты", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Payment_Date, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Payment_Date, new { htmlAttributes = new { @class = "form-control", type = "date" } })
                 @Html.ValidationMessageFor(model => model.Payment_Date, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -42,7 +42,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Bank_branch_num, "Банковские данные:", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Bank_branch_num, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Bank_branch_num, new { htmlAttributes = new { @class = "form-control", placeholder = "Название Банка|аббревиатура" } })
                 @Html.ValidationMessageFor(model => model.Bank_branch_num, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -50,7 +50,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.School, "Школа: ", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("School", null, htmlAttributes: new { @class = "form-control" })
+                @Html.DropDownList("School", null, htmlAttributes: new { @class = "form-control", placeholder = "Оплаченная в банке сумма" })
                 @Html.ValidationMessageFor(model => model.School, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -58,7 +58,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Head_of_teacher, "Оплативший", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("Head_of_teacher", null, htmlAttributes: new { @class = "form-control" })
+                @Html.DropDownList("Head_of_teacher", null, htmlAttributes: new { @class = "form-control", placeholder = "Лицо совершившее оплату" })
                 @Html.ValidationMessageFor(model => model.Head_of_teacher, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -66,14 +66,14 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Graduent, "Выпускник: ", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("Graduent", null, htmlAttributes: new { @class = "form-control" })
+                @Html.DropDownList("Graduent", null, htmlAttributes: new { @class = "form-control", placeholder = "Лицо совершившее оплату(Выпускник)" })
                 @Html.ValidationMessageFor(model => model.Graduent, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Создать запись" class="btn btn-default" />
             </div>
         </div>
     </div>
@@ -85,4 +85,15 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        // переопределение валидации на стороне клиента
+        $.validator.methods.range = function (value, element, param) {
+            var globalizedValue = value.replace(",", ".");
+            return this.optional(element) || (globalizedValue >= param[0] && globalizedValue <= param[1]);
+        }
+
+        $.validator.methods.number = function (value, element) {
+            return this.optional(element) || /^-?(?:\d+|\d{1,3}(?:[\s\.,]\d{3})+)(?:[\.,]\d+)?$/.test(value);
+        }
+    </script>
 }

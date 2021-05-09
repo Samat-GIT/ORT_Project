@@ -4,6 +4,7 @@
     ViewBag.Title = "Сотрудники";
 }
 
+<h2>Список сотрудников</h2>
 
 <p>
     @Html.ActionLink("Добавить нового", "Create")
@@ -34,22 +35,22 @@
             @*@Html.DisplayNameFor(model => model.Phone_number)*@
             Номер телефона
         </th>
-        <th>
+        <!--<th>-->
             @*@Html.DisplayNameFor(model => model.INN_passport)*@
-            ИНН
-        </th>
+            <!--ИНН
+        </th>-->
         <th>
             @*@Html.DisplayNameFor(model => model.Address)*@
             Адрес
         </th>
-        <th>
+        <!--<th>-->
             @*@Html.DisplayNameFor(model => model.Email)*@
-            Почта
-        </th>
-        <th>
+            <!--Почта
+        </th>-->
+        <!--<th>-->
             @*@Html.DisplayNameFor(model => model.Date_of_appointment)*@
-            Дата назначения
-        </th>
+            <!--Дата назначения
+        </th>-->
         <th>
             @*@Html.DisplayNameFor(model => model.Fired)*@
             Статус увольнения
@@ -58,10 +59,10 @@
             @*@Html.DisplayNameFor(model => model.Access_level1.Access_level1)*@
             Уровень доступа
         </th>
-        <th>
+        <!--<th>-->
             @*@Html.DisplayNameFor(model => model.Authorization.Login)*@
-            Логин авторизации
-        </th>
+            <!--Логин авторизации
+        </th>-->
         <th>
             @*@Html.DisplayNameFor(model => model.District_town_.District_name)*@
             Название района
@@ -97,27 +98,27 @@
         <td>
             @Html.DisplayFor(modelItem => item.Phone_number)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.INN_passport)
-        </td>
+        </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.Address)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
+        </td>*@
+        @*<td>
             @Html.DisplayFor(modelItem => item.Date_of_appointment)
-        </td>
+        </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.Fired)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Access_level1.Access_level1)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.Authorization.Login)
-        </td>
+        </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.District_town_.District_name)
         </td>
@@ -128,7 +129,8 @@
             @Html.DisplayFor(modelItem => item.School1.School_name)
         </td>
         <td>
-            @Html.ActionLink("Ред.", "Edit", new { id=item.ID_Employee }) |
+            @Html.ActionLink("Редактировать", "Edit", new { id=item.ID_Employee }) |
+            @Html.ActionLink("Подробно", "Details", new { id = item.ID_Employee }) |
             @Html.ActionLink("Удалить", "Delete", new { id=item.ID_Employee })
         </td>
     </tr>

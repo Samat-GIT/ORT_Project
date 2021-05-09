@@ -1,32 +1,37 @@
 ﻿@model IEnumerable<ORT_Project.Models.Graduant>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Список выпускников";
 }
 
-<h2>Index</h2>
+<h2>Список выпускников</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Добавить запись", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Sur_name)
+            @*@Html.DisplayNameFor(model => model.Sur_name)*@
+            Фамилия
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.First_name)
+            @*@Html.DisplayNameFor(model => model.First_name)*@
+            Имя
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Third_name)
+            @*@Html.DisplayNameFor(model => model.Third_name)*@
+            Отчество
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Birth_date)
+            @*@Html.DisplayNameFor(model => model.Birth_date)*@
+            Дата рождения
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Gender)
+            @*@Html.DisplayNameFor(model => model.Gender)*@
+            Пол
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.Street)
         </th>
         <th>
@@ -34,42 +39,52 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Apartment_House)
+        </th>*@
+        <!--<th>-->
+            @*@Html.DisplayNameFor(model => model.Email)*@
+            <!--Адрес электронной почты
+        </th>
+        <th>-->
+            @*@Html.DisplayNameFor(model => model.Phone_number)*@
+            <!--Номер телефона
+        </th>
+        <th>-->
+            @*@Html.DisplayNameFor(model => model.Diplom_number)*@
+            <!--Номер диплома
+        </th>
+        <th>-->
+            @*@Html.DisplayNameFor(model => model.Attestat_number)*@
+            <!--Номер аттестата
+        </th>-->
+        <th>
+            @*@Html.DisplayNameFor(model => model.Date_of_registr)*@
+            Дата регистрации
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Email)
+            @*@Html.DisplayNameFor(model => model.LocalityName)*@
+            Населенный пункт
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Phone_number)
+            @*@Html.DisplayNameFor(model => model.LocalityAddress)*@
+            Адрес
+        </th>
+        <!--<th>-->
+            @*@Html.DisplayNameFor(model => model.Authorization.Login)*@
+        <!--</th>-->
+        <th>
+            @*@Html.DisplayNameFor(model => model.Category_Graduent.Category_Graduent1)*@
+            Категория
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Diplom_number)
+            @*@Html.DisplayNameFor(model => model.District_town_.District_name)*@
+            Район
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Attestat_number)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Date_of_registr)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LocalityName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LocalityAddress)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Authorization.Login)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Category_Graduent.Category_Graduent1)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.District_town_.District_name)
-        </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.Language1.Language_name)
-        </th>
+        </th>*@
         <th>
-            @Html.DisplayNameFor(model => model.School1.School_name)
+            @*@Html.DisplayNameFor(model => model.School1.School_name)*@
+            Учебное учреждение
         </th>
         <th></th>
     </tr>
@@ -91,7 +106,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.Gender)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.Street)
         </td>
         <td>
@@ -99,19 +114,19 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Apartment_House)
-        </td>
-        <td>
+        </td>*@
+        @*<td>
             @Html.DisplayFor(modelItem => item.Email)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Phone_number)
-        </td>
-        <td>
+        </td>*@
+        <!--<-->@*td>
             @Html.DisplayFor(modelItem => item.Diplom_number)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Attestat_number)
-        </td>
+        </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.Date_of_registr)
         </td>
@@ -121,25 +136,25 @@
         <td>
             @Html.DisplayFor(modelItem => item.LocalityAddress)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.Authorization.Login)
-        </td>
+        </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.Category_Graduent.Category_Graduent1)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.District_town_.District_name)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.Language1.Language_name)
-        </td>
+        </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.School1.School_name)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID_Graduant }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID_Graduant }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID_Graduant })
+            @Html.ActionLink("Редактировать", "Edit", new { id=item.ID_Graduant }) |
+            @Html.ActionLink("Подробно", "Details", new { id=item.ID_Graduant }) |
+            @Html.ActionLink("Удалить", "Delete", new { id=item.ID_Graduant })
         </td>
     </tr>
 }

@@ -1,21 +1,23 @@
 ﻿@model IEnumerable<ORT_Project.Models.Authorization>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Данные авторизации";
 }
 
-<h2>Index</h2>
+<h2>Данные авторизации</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Добавить запись", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Login)
+            @*@Html.DisplayNameFor(model => model.Login)*@
+            Логин
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Password)
+            @*@Html.DisplayNameFor(model => model.Password)*@
+            Пароль
         </th>
         <th></th>
     </tr>
@@ -29,9 +31,8 @@
             @Html.DisplayFor(modelItem => item.Password)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id_Autorization }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id_Autorization }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id_Autorization })
+            @Html.ActionLink("Редактировать", "Edit", new { id=item.id_Autorization }) |
+            @Html.ActionLink("Удалить", "Delete", new { id=item.id_Autorization })
         </td>
     </tr>
 }
