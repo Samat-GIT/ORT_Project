@@ -17,8 +17,12 @@ namespace ORT_Project.Models
         public int ID_Reationship { get; set; }
         public Nullable<int> ID_Graduent { get; set; }
         public Nullable<byte> ID_Subject { get; set; }
+        public Nullable<byte> Subject1 { get; set; }
+        public Nullable<byte> Subject2 { get; set; }
     
         public virtual Graduant Graduant { get; set; }
         public virtual Subject Subject { get; set; }
+        public virtual Subject Subject3 { get; set; }
+        public virtual Subject Subject4 { get; set; }
     }
 }

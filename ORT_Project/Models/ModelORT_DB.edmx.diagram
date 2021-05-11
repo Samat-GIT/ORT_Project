@@ -41,6 +41,8 @@
         <AssociationConnector Association="ORTModel.FK_Receipt_Graduant" ManuallyRouted="false" />
         <AssociationConnector Association="ORTModel.FK_Reatinship_Graduent_and_Subject__Subject" ManuallyRouted="false" />
         <AssociationConnector Association="ORTModel.FK_Receipt_School" ManuallyRouted="false" />
+        <AssociationConnector Association="ORTModel.FK_Reatinship_Graduent_and_Subject__Subject1" />
+        <AssociationConnector Association="ORTModel.FK_Reatinship_Graduent_and_Subject__Subject2" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

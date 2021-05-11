@@ -140,6 +140,7 @@
     <Compile Include="Controllers\LanguagesController.cs" />
     <Compile Include="Controllers\Limit_of_timeController.cs" />
     <Compile Include="Controllers\PositionsController.cs" />
+    <Compile Include="Controllers\Reatinship_Graduent_and_Subject_Controller.cs" />
     <Compile Include="Controllers\ReceiptsController.cs" />
     <Compile Include="Controllers\RegionsController.cs" />
     <Compile Include="Controllers\SchoolsController.cs" />
@@ -352,6 +353,11 @@
     <Content Include="Views\Schools\Details.cshtml" />
     <Content Include="Views\Schools\Edit.cshtml" />
     <Content Include="Views\Schools\Index.cshtml" />
+    <Content Include="Views\Reatinship_Graduent_and_Subject_\Create.cshtml" />
+    <Content Include="Views\Reatinship_Graduent_and_Subject_\Delete.cshtml" />
+    <Content Include="Views\Reatinship_Graduent_and_Subject_\Details.cshtml" />
+    <Content Include="Views\Reatinship_Graduent_and_Subject_\Edit.cshtml" />
+    <Content Include="Views\Reatinship_Graduent_and_Subject_\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

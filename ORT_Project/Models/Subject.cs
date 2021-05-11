@@ -18,6 +18,8 @@ namespace ORT_Project.Models
         public Subject()
         {
             this.Reatinship_Graduent_and_Subject_ = new HashSet<Reatinship_Graduent_and_Subject_>();
+            this.Reatinship_Graduent_and_Subject_1 = new HashSet<Reatinship_Graduent_and_Subject_>();
+            this.Reatinship_Graduent_and_Subject_2 = new HashSet<Reatinship_Graduent_and_Subject_>();
         }
     
         public byte ID_Subject { get; set; }
@@ -26,5 +28,9 @@ namespace ORT_Project.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Reatinship_Graduent_and_Subject_> Reatinship_Graduent_and_Subject_ { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Reatinship_Graduent_and_Subject_> Reatinship_Graduent_and_Subject_1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Reatinship_Graduent_and_Subject_> Reatinship_Graduent_and_Subject_2 { get; set; }
     }
 }

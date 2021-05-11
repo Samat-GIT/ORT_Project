@@ -11,8 +11,7 @@ namespace ORT_Project.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Employees
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -23,20 +22,13 @@ namespace ORT_Project.Models
         }
     
         public int ID_Employee { get; set; }
-        [Required(ErrorMessage="Пожалуйста введите фамилию")]
         public string Surname { get; set; }
-        [Required(ErrorMessage = "Пожалуйста введите имя")]
         public string First_name { get; set; }
         public string Third_Name { get; set; }
-        [Required(ErrorMessage = "Пожалуйста укажите дату рождения")]
         public System.DateTime Birth_date { get; set; }
-        [Required(ErrorMessage = "Пожалуйста укажите пол")]
         public string Gender { get; set; }
-        [Required(ErrorMessage = "Пожалуйста введите номер телефона")]
         public string Phone_number { get; set; }
-        [Required(ErrorMessage = "Пожалуйста укажите ИНН")]
         public string INN_passport { get; set; }
-        [Required(ErrorMessage = "Пожалуйста укажите адрес")]
         public string Address { get; set; }
         public string Email { get; set; }
         public Nullable<System.DateTime> Date_of_appointment { get; set; }
