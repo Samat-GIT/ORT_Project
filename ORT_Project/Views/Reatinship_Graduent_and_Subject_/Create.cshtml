@@ -1,63 +1,48 @@
 ﻿@model ORT_Project.Models.Reatinship_Graduent_and_Subject_
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Регистрация выпускника";
 }
 
-<h2>Create</h2>
-
+<h2>Регистрация абитуриента</h2>
+<h3>@ViewBag.message</h3>
 
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     
-<div class="form-horizontal">
-    <h4>Reatinship_Graduent_and_Subject_</h4>
-    <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.LabelFor(model => model.ID_Graduent, "ID_Graduent", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownList("ID_Graduent", null, htmlAttributes: new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.ID_Graduent, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.ID_Subject, "ID_Subject", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownList("ID_Subject", (IEnumerable<SelectListItem>)ViewData["Menu"],
+    <div class="form-horizontal">
+        <h4>Данные выпускника</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.ID_Graduent, "Выпускник", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("ID_Graduent", (IEnumerable<SelectListItem>)ViewData["ID_Graduent"],
                       string.Empty, htmlAttributes: new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.ID_Subject, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.ID_Graduent, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ID_Subject, "Дисциплина", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("ID_Subject", (IEnumerable<SelectListItem>)ViewData["ID_Subject"],
+                      string.Empty, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ID_Subject, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Зарегистрировать на дисциплину" class="btn btn-default" />
+            </div>
         </div>
     </div>
-
-    @*<div class="form-group">
-        @Html.LabelFor(model => model.Subject3, "Subject1", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownList("Subject1", null, htmlAttributes: new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.Subject3, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.Subject4, "Subject2", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownList("Subject2", null, htmlAttributes: new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.Subject4, "", new { @class = "text-danger" })
-        </div>
-    </div>*@
-
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Create" class="btn btn-default" />
-        </div>
-    </div>
-</div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Назад", "Index")
 </div>
 
 @section Scripts {

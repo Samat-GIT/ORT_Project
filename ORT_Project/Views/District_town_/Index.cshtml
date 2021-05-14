@@ -8,34 +8,45 @@
 
 <p>
     @Html.ActionLink("Добавить запись", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @*@Html.DisplayNameFor(model => model.District_name)*@
-            Район
-        </th>
-        <th>
-            @*@Html.DisplayNameFor(model => model.Region1.Region_name)*@
-            Область
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.District_name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Region1.Region_name)
-        </td>
-        <td>
-            @Html.ActionLink("Редактировать", "Edit", new { id=item.ID_District }) |
-            @Html.ActionLink("Подробно", "Details", new { id=item.ID_District }) |
-            @Html.ActionLink("Удалить", "Delete", new { id=item.ID_District })
-        </td>
-    </tr>
+    @using (Html.BeginForm("Index", "District_town_", FormMethod.Get))
+    {
+    <p>
+        @*Products: @Html.DropDownList("ProductsType", "All")*@
+        Район: @Html.TextBox("SearchString", "", new { placeholder = "Название" }) <br />
+        <input type="submit" value="Поиск" />
+    </p>
 }
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @*@Html.DisplayNameFor(model => model.District_name)*@
+                @Html.ActionLink("Район", "Index", new { sortOrder = ViewBag.NameSortParm })
+                @*Район*@
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Region1.Region_name)*@
+                @Html.ActionLink("Область", "Index", new { sortOrder = ViewBag.RegSortParm })
+                @*Область*@
+            </th>
+            <th></th>
+        </tr>
 
-</table>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.District_name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Region1.Region_name)
+                </td>
+                <td>
+                    @Html.ActionLink("Редактировать", "Edit", new { id = item.ID_District }) |
+                    @Html.ActionLink("Подробно", "Details", new { id = item.ID_District }) |
+                    @Html.ActionLink("Удалить", "Delete", new { id = item.ID_District })
+                </td>
+            </tr>
+        }
+
+    </table>

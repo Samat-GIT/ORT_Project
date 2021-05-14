@@ -53,9 +53,19 @@ namespace ORT_Project.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Reatinship_Graduent_and_Subject_.Add(reatinship_Graduent_and_Subject_);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                try
+                {
+                    db.Reatinship_Graduent_and_Subject_.Add(reatinship_Graduent_and_Subject_);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                catch
+                {
+                    ViewBag.message = "Абитуриент уже зарегистрирован на данную дисциплину!";
+                    ViewBag.ID_Graduent = new SelectList(db.Graduant, "ID_Graduant", "Sur_name", reatinship_Graduent_and_Subject_.ID_Graduent);
+                    ViewBag.ID_Subject = new SelectList(db.Subject, "ID_Subject", "Subject_name", reatinship_Graduent_and_Subject_.ID_Subject);
+                    return View(reatinship_Graduent_and_Subject_);
+                }
             }
 
             ViewBag.ID_Graduent = new SelectList(db.Graduant, "ID_Graduant", "Sur_name", reatinship_Graduent_and_Subject_.ID_Graduent);

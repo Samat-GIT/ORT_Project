@@ -136,8 +136,6 @@
           <Property Name="ID_Reationship" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ID_Graduent" Type="int" />
           <Property Name="ID_Subject" Type="tinyint" />
-          <Property Name="Subject1" Type="tinyint" />
-          <Property Name="Subject2" Type="tinyint" />
         </EntityType>
         <EntityType Name="Receipt">
           <Key>
@@ -371,30 +369,6 @@
             </Principal>
             <Dependent Role="Reatinship(Graduent_and_Subject)">
               <PropertyRef Name="ID_Subject" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Reatinship(Graduent_and_Subject)_Subject1">
-          <End Role="Subject" Type="Self.Subject" Multiplicity="0..1" />
-          <End Role="Reatinship(Graduent_and_Subject)" Type="Self.Reatinship(Graduent_and_Subject)" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Subject">
-              <PropertyRef Name="ID_Subject" />
-            </Principal>
-            <Dependent Role="Reatinship(Graduent_and_Subject)">
-              <PropertyRef Name="Subject1" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Reatinship(Graduent_and_Subject)_Subject2">
-          <End Role="Subject" Type="Self.Subject" Multiplicity="0..1" />
-          <End Role="Reatinship(Graduent_and_Subject)" Type="Self.Reatinship(Graduent_and_Subject)" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Subject">
-              <PropertyRef Name="ID_Subject" />
-            </Principal>
-            <Dependent Role="Reatinship(Graduent_and_Subject)">
-              <PropertyRef Name="Subject2" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1074,14 +1048,6 @@
             <End Role="Subject" EntitySet="Subject" />
             <End Role="Reatinship(Graduent_and_Subject)" EntitySet="Reatinship(Graduent_and_Subject)" />
           </AssociationSet>
-          <AssociationSet Name="FK_Reatinship(Graduent_and_Subject)_Subject1" Association="Self.FK_Reatinship(Graduent_and_Subject)_Subject1">
-            <End Role="Subject" EntitySet="Subject" />
-            <End Role="Reatinship(Graduent_and_Subject)" EntitySet="Reatinship(Graduent_and_Subject)" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Reatinship(Graduent_and_Subject)_Subject2" Association="Self.FK_Reatinship(Graduent_and_Subject)_Subject2">
-            <End Role="Subject" EntitySet="Subject" />
-            <End Role="Reatinship(Graduent_and_Subject)" EntitySet="Reatinship(Graduent_and_Subject)" />
-          </AssociationSet>
           <AssociationSet Name="FK_Receipt_Employees" Association="Self.FK_Receipt_Employees">
             <End Role="Employees" EntitySet="Employees" />
             <End Role="Receipt" EntitySet="Receipt" />
@@ -1226,8 +1192,8 @@
           <NavigationProperty Name="District_town_" Relationship="Self.FK_Graduant_District_town_" FromRole="Graduant" ToRole="District_town_" />
           <NavigationProperty Name="Language1" Relationship="Self.FK_Graduant_Language" FromRole="Graduant" ToRole="Language" />
           <NavigationProperty Name="School1" Relationship="Self.FK_Graduant_School" FromRole="Graduant" ToRole="School" />
-          <NavigationProperty Name="Reatinship_Graduent_and_Subject_" Relationship="Self.FK_Reatinship_Graduent_and_Subject__Graduant" FromRole="Graduant" ToRole="Reatinship_Graduent_and_Subject_" />
           <NavigationProperty Name="Receipt" Relationship="Self.FK_Receipt_Graduant" FromRole="Graduant" ToRole="Receipt" />
+          <NavigationProperty Name="Reatinship_Graduent_and_Subject_" Relationship="ORTModel.FK_Reatinship_Graduent_and_Subject__Graduant" FromRole="Graduant" ToRole="Reatinship_Graduent_and_Subject_" />
         </EntityType>
         <EntityType Name="Language">
           <Key>
@@ -1253,20 +1219,6 @@
           <Property Name="ID_Position" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Position_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Employees" Relationship="Self.FK_Employees_Position" FromRole="Position" ToRole="Employees" />
-        </EntityType>
-        <EntityType Name="Reatinship_Graduent_and_Subject_">
-          <Key>
-            <PropertyRef Name="ID_Reationship" />
-          </Key>
-          <Property Name="ID_Reationship" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ID_Graduent" Type="Int32" />
-          <Property Name="ID_Subject" Type="Byte" />
-          <NavigationProperty Name="Graduant" Relationship="Self.FK_Reatinship_Graduent_and_Subject__Graduant" FromRole="Reatinship_Graduent_and_Subject_" ToRole="Graduant" />
-          <NavigationProperty Name="Subject" Relationship="Self.FK_Reatinship_Graduent_and_Subject__Subject" FromRole="Reatinship_Graduent_and_Subject_" ToRole="Subject" />
-          <Property Name="Subject1" Type="Byte" />
-          <Property Name="Subject2" Type="Byte" />
-          <NavigationProperty Name="Subject3" Relationship="ORTModel.FK_Reatinship_Graduent_and_Subject__Subject1" FromRole="Reatinship_Graduent_and_Subject_" ToRole="Subject" />
-          <NavigationProperty Name="Subject4" Relationship="ORTModel.FK_Reatinship_Graduent_and_Subject__Subject2" FromRole="Reatinship_Graduent_and_Subject_" ToRole="Subject" />
         </EntityType>
         <EntityType Name="Receipt">
           <Key>
@@ -1316,9 +1268,7 @@
           <Property Name="ID_Subject" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Subject_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Subject_Price" Type="Decimal" Precision="19" Scale="4" />
-          <NavigationProperty Name="Reatinship_Graduent_and_Subject_" Relationship="Self.FK_Reatinship_Graduent_and_Subject__Subject" FromRole="Subject" ToRole="Reatinship_Graduent_and_Subject_" />
-          <NavigationProperty Name="Reatinship_Graduent_and_Subject_1" Relationship="ORTModel.FK_Reatinship_Graduent_and_Subject__Subject1" FromRole="Subject" ToRole="Reatinship_Graduent_and_Subject_" />
-          <NavigationProperty Name="Reatinship_Graduent_and_Subject_2" Relationship="ORTModel.FK_Reatinship_Graduent_and_Subject__Subject2" FromRole="Subject" ToRole="Reatinship_Graduent_and_Subject_" />
+          <NavigationProperty Name="Reatinship_Graduent_and_Subject_" Relationship="ORTModel.FK_Reatinship_Graduent_and_Subject__Subject" FromRole="Subject" ToRole="Reatinship_Graduent_and_Subject_" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -1512,20 +1462,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Reatinship_Graduent_and_Subject__Graduant">
-          <End Role="Graduant" Type="Self.Graduant" Multiplicity="0..1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="Reatinship_Graduent_and_Subject_" Type="Self.Reatinship_Graduent_and_Subject_" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Graduant">
-              <PropertyRef Name="ID_Graduant" />
-            </Principal>
-            <Dependent Role="Reatinship_Graduent_and_Subject_">
-              <PropertyRef Name="ID_Graduent" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Receipt_Graduant">
           <End Role="Graduant" Type="Self.Graduant" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
@@ -1537,18 +1473,6 @@
             </Principal>
             <Dependent Role="Receipt">
               <PropertyRef Name="Graduent" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Reatinship_Graduent_and_Subject__Subject">
-          <End Role="Subject" Type="Self.Subject" Multiplicity="0..1" />
-          <End Role="Reatinship_Graduent_and_Subject_" Type="Self.Reatinship_Graduent_and_Subject_" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Subject">
-              <PropertyRef Name="ID_Subject" />
-            </Principal>
-            <Dependent Role="Reatinship_Graduent_and_Subject_">
-              <PropertyRef Name="ID_Subject" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1576,7 +1500,6 @@
           <EntitySet Name="Language" EntityType="Self.Language" />
           <EntitySet Name="Limit_of_time" EntityType="Self.Limit_of_time" />
           <EntitySet Name="Position" EntityType="Self.Position" />
-          <EntitySet Name="Reatinship_Graduent_and_Subject_" EntityType="Self.Reatinship_Graduent_and_Subject_" />
           <EntitySet Name="Receipt" EntityType="Self.Receipt" />
           <EntitySet Name="Region" EntityType="Self.Region" />
           <EntitySet Name="School" EntityType="Self.School" />
@@ -1642,17 +1565,9 @@
             <End Role="School" EntitySet="School" />
             <End Role="Graduant" EntitySet="Graduant" />
           </AssociationSet>
-          <AssociationSet Name="FK_Reatinship_Graduent_and_Subject__Graduant" Association="Self.FK_Reatinship_Graduent_and_Subject__Graduant">
-            <End Role="Graduant" EntitySet="Graduant" />
-            <End Role="Reatinship_Graduent_and_Subject_" EntitySet="Reatinship_Graduent_and_Subject_" />
-          </AssociationSet>
           <AssociationSet Name="FK_Receipt_Graduant" Association="Self.FK_Receipt_Graduant">
             <End Role="Graduant" EntitySet="Graduant" />
             <End Role="Receipt" EntitySet="Receipt" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Reatinship_Graduent_and_Subject__Subject" Association="Self.FK_Reatinship_Graduent_and_Subject__Subject">
-            <End Role="Subject" EntitySet="Subject" />
-            <End Role="Reatinship_Graduent_and_Subject_" EntitySet="Reatinship_Graduent_and_Subject_" />
           </AssociationSet>
           <AssociationSet Name="FK_Receipt_School" Association="Self.FK_Receipt_School">
             <End Role="School" EntitySet="School" />
@@ -2205,11 +2120,12 @@
             <Parameter Name="UpSubject_name" Mode="In" Type="String" />
             <Parameter Name="UpSubject_Price" Mode="In" Type="Decimal" />
           </FunctionImport>
-          <AssociationSet Name="FK_Reatinship_Graduent_and_Subject__Subject1" Association="ORTModel.FK_Reatinship_Graduent_and_Subject__Subject1">
-            <End Role="Subject" EntitySet="Subject" />
+          <EntitySet Name="Reatinship_Graduent_and_Subject_" EntityType="ORTModel.Reatinship_Graduent_and_Subject_" />
+          <AssociationSet Name="FK_Reatinship_Graduent_and_Subject__Graduant" Association="ORTModel.FK_Reatinship_Graduent_and_Subject__Graduant">
+            <End Role="Graduant" EntitySet="Graduant" />
             <End Role="Reatinship_Graduent_and_Subject_" EntitySet="Reatinship_Graduent_and_Subject_" />
           </AssociationSet>
-          <AssociationSet Name="FK_Reatinship_Graduent_and_Subject__Subject2" Association="ORTModel.FK_Reatinship_Graduent_and_Subject__Subject2">
+          <AssociationSet Name="FK_Reatinship_Graduent_and_Subject__Subject" Association="ORTModel.FK_Reatinship_Graduent_and_Subject__Subject">
             <End Role="Subject" EntitySet="Subject" />
             <End Role="Reatinship_Graduent_and_Subject_" EntitySet="Reatinship_Graduent_and_Subject_" />
           </AssociationSet>
@@ -2242,19 +2158,31 @@
           <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
           <Property Type="Int32" Name="OwnerID" Nullable="false" />
         </ComplexType>
-        <Association Name="FK_Reatinship_Graduent_and_Subject__Subject1">
-          <End Type="ORTModel.Subject" Role="Subject" Multiplicity="0..1" />
+        <EntityType Name="Reatinship_Graduent_and_Subject_">
+          <Key>
+            <PropertyRef Name="ID_Reationship" />
+          </Key>
+          <Property Name="ID_Reationship" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Graduent" Type="Int32" />
+          <Property Name="ID_Subject" Type="Byte" />
+          <NavigationProperty Name="Graduant" Relationship="ORTModel.FK_Reatinship_Graduent_and_Subject__Graduant" FromRole="Reatinship_Graduent_and_Subject_" ToRole="Graduant" />
+          <NavigationProperty Name="Subject" Relationship="ORTModel.FK_Reatinship_Graduent_and_Subject__Subject" FromRole="Reatinship_Graduent_and_Subject_" ToRole="Subject" />
+        </EntityType>
+        <Association Name="FK_Reatinship_Graduent_and_Subject__Graduant">
+          <End Type="ORTModel.Graduant" Role="Graduant" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="ORTModel.Reatinship_Graduent_and_Subject_" Role="Reatinship_Graduent_and_Subject_" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Subject">
-              <PropertyRef Name="ID_Subject" />
+            <Principal Role="Graduant">
+              <PropertyRef Name="ID_Graduant" />
             </Principal>
             <Dependent Role="Reatinship_Graduent_and_Subject_">
-              <PropertyRef Name="Subject1" />
+              <PropertyRef Name="ID_Graduent" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Reatinship_Graduent_and_Subject__Subject2">
+        <Association Name="FK_Reatinship_Graduent_and_Subject__Subject">
           <End Type="ORTModel.Subject" Role="Subject" Multiplicity="0..1" />
           <End Type="ORTModel.Reatinship_Graduent_and_Subject_" Role="Reatinship_Graduent_and_Subject_" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2262,7 +2190,7 @@
               <PropertyRef Name="ID_Subject" />
             </Principal>
             <Dependent Role="Reatinship_Graduent_and_Subject_">
-              <PropertyRef Name="Subject2" />
+              <PropertyRef Name="ID_Subject" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2482,17 +2410,6 @@
               <MappingFragment StoreEntitySet="Position">
                 <ScalarProperty Name="ID_Position" ColumnName="ID_Position" />
                 <ScalarProperty Name="Position_Name" ColumnName="Position_Name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Reatinship_Graduent_and_Subject_">
-            <EntityTypeMapping TypeName="ORTModel.Reatinship_Graduent_and_Subject_">
-              <MappingFragment StoreEntitySet="Reatinship(Graduent_and_Subject)">
-                <ScalarProperty Name="Subject2" ColumnName="Subject2" />
-                <ScalarProperty Name="Subject1" ColumnName="Subject1" />
-                <ScalarProperty Name="ID_Reationship" ColumnName="ID_Reationship" />
-                <ScalarProperty Name="ID_Graduent" ColumnName="ID_Graduent" />
-                <ScalarProperty Name="ID_Subject" ColumnName="ID_Subject" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2756,6 +2673,15 @@
           <FunctionImportMapping FunctionImportName="Up_School_Postal_zip" FunctionName="Хранилище ORTModel.Up_School_Postal_zip" />
           <FunctionImportMapping FunctionImportName="UpCost_of_Test" FunctionName="Хранилище ORTModel.UpCost_of_Test" />
           <FunctionImportMapping FunctionImportName="UpSubject" FunctionName="Хранилище ORTModel.UpSubject" />
+          <EntitySetMapping Name="Reatinship_Graduent_and_Subject_">
+            <EntityTypeMapping TypeName="ORTModel.Reatinship_Graduent_and_Subject_">
+              <MappingFragment StoreEntitySet="Reatinship(Graduent_and_Subject)">
+                <ScalarProperty Name="ID_Subject" ColumnName="ID_Subject" />
+                <ScalarProperty Name="ID_Graduent" ColumnName="ID_Graduent" />
+                <ScalarProperty Name="ID_Reationship" ColumnName="ID_Reationship" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

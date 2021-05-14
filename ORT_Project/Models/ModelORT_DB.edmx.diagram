@@ -16,7 +16,6 @@
         <EntityTypeShape EntityType="ORTModel.Language" Width="1.5" PointX="3.75" PointY="18.5" IsExpanded="true" />
         <EntityTypeShape EntityType="ORTModel.Limit_of_time" Width="1.5" PointX="10.75" PointY="2.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ORTModel.Position" Width="1.5" PointX="0.75" PointY="17" IsExpanded="true" />
-        <EntityTypeShape EntityType="ORTModel.Reatinship_Graduent_and_Subject_" Width="1.5" PointX="8.25" PointY="5.125" IsExpanded="true" />
         <EntityTypeShape EntityType="ORTModel.Receipt" Width="1.5" PointX="11.25" PointY="8.5" IsExpanded="true" />
         <EntityTypeShape EntityType="ORTModel.Region" Width="1.5" PointX="1.5" PointY="14.375" IsExpanded="true" />
         <EntityTypeShape EntityType="ORTModel.School" Width="1.5" PointX="0.75" PointY="19.375" IsExpanded="true" />
@@ -37,12 +36,11 @@
         <AssociationConnector Association="ORTModel.FK_Receipt_Employees" ManuallyRouted="false" />
         <AssociationConnector Association="ORTModel.FK_Graduant_Language" ManuallyRouted="false" />
         <AssociationConnector Association="ORTModel.FK_Graduant_School" ManuallyRouted="false" />
-        <AssociationConnector Association="ORTModel.FK_Reatinship_Graduent_and_Subject__Graduant" ManuallyRouted="false" />
         <AssociationConnector Association="ORTModel.FK_Receipt_Graduant" ManuallyRouted="false" />
-        <AssociationConnector Association="ORTModel.FK_Reatinship_Graduent_and_Subject__Subject" ManuallyRouted="false" />
         <AssociationConnector Association="ORTModel.FK_Receipt_School" ManuallyRouted="false" />
-        <AssociationConnector Association="ORTModel.FK_Reatinship_Graduent_and_Subject__Subject1" />
-        <AssociationConnector Association="ORTModel.FK_Reatinship_Graduent_and_Subject__Subject2" />
+        <EntityTypeShape EntityType="ORTModel.Reatinship_Graduent_and_Subject_" Width="1.5" PointX="8.25" PointY="5.75" />
+        <AssociationConnector Association="ORTModel.FK_Reatinship_Graduent_and_Subject__Graduant" />
+        <AssociationConnector Association="ORTModel.FK_Reatinship_Graduent_and_Subject__Subject" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

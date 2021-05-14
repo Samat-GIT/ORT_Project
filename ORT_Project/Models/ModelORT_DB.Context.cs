@@ -38,12 +38,12 @@ namespace ORT_Project.Models
         public virtual DbSet<Language> Language { get; set; }
         public virtual DbSet<Limit_of_time> Limit_of_time { get; set; }
         public virtual DbSet<Position> Position { get; set; }
-        public virtual DbSet<Reatinship_Graduent_and_Subject_> Reatinship_Graduent_and_Subject_ { get; set; }
         public virtual DbSet<Receipt> Receipt { get; set; }
         public virtual DbSet<Region> Region { get; set; }
         public virtual DbSet<School> School { get; set; }
         public virtual DbSet<Subject> Subject { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<Reatinship_Graduent_and_Subject_> Reatinship_Graduent_and_Subject_ { get; set; }
     
         public virtual ObjectResult<Nullable<decimal>> Add_Access_level(string accesslevel)
         {
