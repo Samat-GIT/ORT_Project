@@ -4,7 +4,7 @@
     ViewBag.Title = "Список квитанций";
 }
 
-<h2>Инфо об оплате</h2>
+<h2>Информация об оплате</h2>
 
 <p>
     @Html.ActionLink("Добавить ", "Create")
@@ -66,7 +66,7 @@
             @Html.DisplayFor(modelItem => item.School1.School_name)
         </td>
         <td>
-            @Html.ActionLink("Ред", "Edit", new { id=item.ID_Raceipt }) |
+            @Html.ActionLink("Редактировать", "Edit", new { id=item.ID_Raceipt }) |
             @Html.ActionLink("Удалить", "Delete", new { id=item.ID_Raceipt })
         </td>
     </tr>

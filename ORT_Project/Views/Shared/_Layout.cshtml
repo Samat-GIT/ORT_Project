@@ -30,21 +30,23 @@
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    @*<span class="icon-bar"></span>
                     <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>*@
                 </button>
                 @*@Html.ActionLink("Хоум", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
                 @*<a class="navbar-brand" href="@Url.Action("Index", "Home")">
             <img src="../../Content/logo.png" alt="Site Logo" style="height:193px; width: 300px" />
         </a>*@
                 <a class="navbar-brand" href="@Url.Action("Index", "Home")"> <span class="glyphicon glyphicon-home"></span> Главная </a>
+                
             </div>
             @*Снизу идут комбобоксы для доступа к основным представлениям*@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <span class="glyphicon glyphicon-briefcase"></span>
                             Администрирование
                             <span class="caret"></span>
                         </a>
@@ -60,18 +62,19 @@
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                             <span class="glyphicon glyphicon-globe"> </span>
-                            Работа с регионами
+                            Уч.учреждения и районы
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
                             <li><a href="@Url.Action("Index", "Regions")">Области</a></li>
-                            <li><a href="@Url.Action("Index", "Schools")">Школы</a></li>
+                            <li><a href="@Url.Action("Index", "Schools")">Учебные учреждения</a></li>
                             <li><a href="@Url.Action("Index", "District_town_")">Район(город)</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                            Управление персоналом
+                            <span class="glyphicon glyphicon-user"> </span>
+                            Персонал
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
@@ -82,24 +85,26 @@
                     </li>
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                            Абитуриент
+                            <span class="glyphicon glyphicon-education"></span>
+                            Выпускники
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
                             <li><a href="@Url.Action("Index", "Access_ticket")">Форма 3</a></li>
                             <li><a href="@Url.Action("Index", "Category_Graduent")">Тип выпускника</a></li>
                             <li><a href="@Url.Action("Index", "Graduants")">Выпускники</a></li>
-                            
+
                         </ul>
                     </li>
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                            Работа с тестом
+                            <span class="glyphicon glyphicon-list-alt"></span>
+                            Дисциплины и оплата
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="@Url.Action("Index", "Subjects")">Предметы</a></li>
-                            <li><a href="@Url.Action("Index", "Receipts")">Квитанции</a></li>
+                            <li><a href="@Url.Action("Index", "Subjects")">Дисциплины</a></li>
+                            <li><a href="@Url.Action("Index", "Receipts")">Информация об оплате</a></li>
                             
                         </ul>
                     </li>

@@ -1,10 +1,10 @@
 ﻿@model ORT_Project.Models.Limit_of_time
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Ограничение по времени";
 }
 
-<h2>Create</h2>
+<h2>Создать запись</h2>
 
 
 @using (Html.BeginForm()) 
@@ -12,45 +12,56 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Limit_of_time</h4>
+        <h4>Ограничения</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.Date_of_limit, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Date_of_limit,"Дата установки ограничения", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Date_of_limit, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Date_of_limit, new { htmlAttributes = new { @class = "form-control", type = "date" } })
                 @Html.ValidationMessageFor(model => model.Date_of_limit, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Limit_start, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Limit_start,"Начало периода", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Limit_start, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Limit_start, new { htmlAttributes = new { @class = "form-control", type = "date" } })
                 @Html.ValidationMessageFor(model => model.Limit_start, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Limit_end, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Limit_end,"Конец периода", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Limit_end, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Limit_end, new { htmlAttributes = new { @class = "form-control", type = "date" } })
                 @Html.ValidationMessageFor(model => model.Limit_end, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Создать запись" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Назад", "Index")
 </div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+<script>
+        // переопределение валидации на стороне клиента
+        $.validator.methods.range = function (value, element, param) {
+            var globalizedValue = value.replace(",", ".");
+            return this.optional(element) || (globalizedValue >= param[0] && globalizedValue <= param[1]);
+        }
+
+        $.validator.methods.number = function (value, element) {
+            return this.optional(element) || /^-?(?:\d+|\d{1,3}(?:[\s\.,]\d{3})+)(?:[\.,]\d+)?$/.test(value);
+        }
+</script>
 }

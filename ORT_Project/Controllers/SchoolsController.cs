@@ -15,9 +15,40 @@ namespace ORT_Project.Controllers
         private ORTEntities db = new ORTEntities();
 
         // GET: Schools
-        public ActionResult Index()
+        public ActionResult Index(string SearchString, string sortOrder)
         {
             var school = db.School.Include(s => s.District_town_);
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.ZipSortParm = sortOrder == "ZIP_asc" ? "ZIP_desc" : "ZIP_asc";
+            ViewBag.CodeSortParm = sortOrder == "Code_asc" ? "Code_desc" : "Code_asc";
+            ViewBag.DistrictSortParm = String.IsNullOrEmpty(sortOrder) ? "district_desc" : "";
+            //ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    school = school.OrderByDescending(x=>x.School_name);
+                    break;
+                case "ZIP_desc":
+                    school = school.OrderByDescending(x => x.Postal_zip);
+                    break;
+                case "ZIP_asc":
+                    school = school.OrderBy(x => x.Postal_zip);
+                    break;
+                case "Code_desc":
+                    school = school.OrderByDescending(x => x.Code_of_school);
+                    break;
+                case "Code_asc":
+                    school = school.OrderBy(x => x.Code_of_school);
+                    break;
+                case "district_desc":
+                    school = school.OrderByDescending(x => x.District);
+                    break;
+            }
+            
+            if (!String.IsNullOrEmpty(SearchString))
+            {
+                school = school.Where(x => x.School_name.Contains(SearchString));
+            }
             return View(school.ToList());
         }
 

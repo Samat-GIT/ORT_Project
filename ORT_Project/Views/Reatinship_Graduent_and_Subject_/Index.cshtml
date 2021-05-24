@@ -1,0 +1,41 @@
+﻿@model IEnumerable<ORT_Project.Models.Reatinship_Graduent_and_Subject_>
+
+@{
+    ViewBag.Title = "Регистрация выпускника";
+}
+
+<h2>Регистрация выпускника на тест</h2>
+
+<p>
+    @Html.ActionLink("Провести регистрацию", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @*@Html.DisplayNameFor(model => model.Graduant.Sur_name)*@
+            Фамилия выпускника
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.Subject.Subject_name)*@
+            Дисциплина
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Graduant.Sur_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Subject.Subject_name)
+        </td>
+        <td>
+            @Html.ActionLink("Редактировать", "Edit", new { id=item.ID_Reationship }) |
+            @Html.ActionLink("Подробно", "Details", new { id=item.ID_Reationship }) |
+            @Html.ActionLink("Удалить", "Delete", new { id=item.ID_Reationship })
+        </td>
+    </tr>
+}
+
+</table>

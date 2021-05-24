@@ -1,17 +1,18 @@
 ﻿@model ORT_Project.Models.Employees
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Сотрудники - подробно";
 }
 
-<h2>Details</h2>
+<h2>Подробно</h2>
 
 <div>
-    <h4>Employees</h4>
+    <h4>данные сотрудника</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Surname)
+            @*@Html.DisplayNameFor(model => model.Surname)*@
+            Фамилия
         </dt>
 
         <dd>
@@ -19,7 +20,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.First_name)
+            @*@Html.DisplayNameFor(model => model.First_name)*@
+            Имя
         </dt>
 
         <dd>
@@ -27,7 +29,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Third_Name)
+            @*@Html.DisplayNameFor(model => model.Third_Name)*@
+            Отчество
         </dt>
 
         <dd>
@@ -35,7 +38,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Birth_date)
+            @*@Html.DisplayNameFor(model => model.Birth_date)*@
+            Дата рождения
         </dt>
 
         <dd>
@@ -43,7 +47,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Gender)
+            @*@Html.DisplayNameFor(model => model.Gender)*@
+            Пол
         </dt>
 
         <dd>
@@ -51,7 +56,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Phone_number)
+            @*@Html.DisplayNameFor(model => model.Phone_number)*@
+            Номер телефона
         </dt>
 
         <dd>
@@ -59,7 +65,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.INN_passport)
+            @*@Html.DisplayNameFor(model => model.INN_passport)*@
+            ИНН сотрудника
         </dt>
 
         <dd>
@@ -67,7 +74,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Address)
+            @*@Html.DisplayNameFor(model => model.Address)*@
+            Адрес
         </dt>
 
         <dd>
@@ -75,7 +83,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Email)
+            @*@Html.DisplayNameFor(model => model.Email)*@
+            Адрес электронной почты
         </dt>
 
         <dd>
@@ -83,7 +92,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Date_of_appointment)
+            @*@Html.DisplayNameFor(model => model.Date_of_appointment)*@
+            Дата назначения
         </dt>
 
         <dd>
@@ -91,7 +101,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Fired)
+            @*@Html.DisplayNameFor(model => model.Fired)*@
+            Статус работника (Уволен|Работает)
         </dt>
 
         <dd>
@@ -99,7 +110,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Access_level1.Access_level1)
+            @*@Html.DisplayNameFor(model => model.Access_level1.Access_level1)*@
+            Уровень доступа
         </dt>
 
         <dd>
@@ -107,7 +119,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Authorization.Login)
+            @*@Html.DisplayNameFor(model => model.Authorization.Login)*@
+            Логин сотрудника
         </dt>
 
         <dd>
@@ -115,7 +128,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.District_town_.District_name)
+            @*@Html.DisplayNameFor(model => model.District_town_.District_name)*@
+            Привязанный район
         </dt>
 
         <dd>
@@ -123,7 +137,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Position1.Position_Name)
+            @*@Html.DisplayNameFor(model => model.Position1.Position_Name)*@
+            Должность
         </dt>
 
         <dd>
@@ -131,7 +146,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.School1.School_name)
+            @*@Html.DisplayNameFor(model => model.School1.School_name)*@
+            Привязанное учебное учреждение
         </dt>
 
         <dd>
@@ -141,6 +157,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_Employee }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Редактировать", "Edit", new { id = Model.ID_Employee }) |
+    @Html.ActionLink("Назад", "Index")
 </p>

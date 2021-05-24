@@ -8,67 +8,85 @@
 
 <p>
     @Html.ActionLink("Создать запись", "Create")
+    @using (Html.BeginForm("Index", "Schools", FormMethod.Get))
+{
+    <p>
+        @*Products: @Html.DropDownList("ProductsType", "All")*@
+        Учебное учреждение: @Html.TextBox("SearchString","",new { placeholder = "Название"}) <br />
+        <input type="submit" value="Поиск" />
+    </p>
+}
 </p>
+
 <table class="table">
     <tr>
         <th>
-            @*@Html.DisplayNameFor(model => model.School_name)*@
-            Учебное учреждение
-        </th>
-        <th>
-           @* @Html.DisplayNameFor(model => model.Postal_zip)*@
-            Почтовый код
-        </th>
-        <th>
-            @*@Html.DisplayNameFor(model => model.Code_of_school)*@
-            Код школы
-        </th>
-        <th>
-           @* @Html.DisplayNameFor(model => model.Password_school)*@
-            Пароль школы
+            @Html.ActionLink("Учебное учреждение", "Index", new { sortOrder = ViewBag.NameSortParm })
         </th>
         <!--<th>-->
-            @*@Html.DisplayNameFor(model => model.LocalitiName)*@
-        <!--</th>
-        <th>-->
-            @*@Html.DisplayNameFor(model => model.LocalityAddress)*@
-        <!--</th>-->
+        @*@Html.DisplayNameFor(model => model.School_name)*@
+        <!--Учебное учреждение
+    </th>-->
         <th>
-           @* @Html.DisplayNameFor(model => model.District_town_.District_name)*@
-            Район
+            @Html.ActionLink("Почтовый код", "Index", new { sortOrder = ViewBag.ZipSortParm })
         </th>
+        <!--<th>-->
+            @* @Html.DisplayNameFor(model => model.Postal_zip)*@
+            <!--Почтовый код
+        </th>-->
+    <th>
+        @*@Html.DisplayNameFor(model => model.Code_of_school)*@
+        @*Код школы*@
+        @Html.ActionLink("Код школы", "Index", new { sortOrder = ViewBag.CodeSortParm })
+    </th>
+        <!--<th>-->
+        @* @Html.DisplayNameFor(model => model.Password_school)*@
+        <!--Пароль школы
+    </th>-->
+        <!--<th>-->
+        @*@Html.DisplayNameFor(model => model.LocalitiName)*@
+        <!--</th>
+    <th>-->
+        @*@Html.DisplayNameFor(model => model.LocalityAddress)*@
+        <!--</th>-->
+    <th>
+        @* @Html.DisplayNameFor(model => model.District_town_.District_name)*@
+        @*Район*@
+        @Html.ActionLink("Район", "Index", new { sortOrder = ViewBag.DistrictSortParm })
+    </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.School_name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Postal_zip)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Code_of_school)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Password_school)
-        </td>
-        @*<td>
-            @Html.DisplayFor(modelItem => item.LocalitiName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LocalityAddress)
-        </td>*@
-        <td>
-            @Html.DisplayFor(modelItem => item.District_town_.District_name)
-        </td>
-        <td>
-            @Html.ActionLink("Редактировать", "Edit", new { id=item.ID_School }) |
-            @Html.ActionLink("Подробно", "Details", new { id=item.ID_School }) |
-            @Html.ActionLink("Удалить", "Delete", new { id=item.ID_School })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.School_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Postal_zip)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Code_of_school)
+            </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.Password_school)
+                </td>*@
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.LocalitiName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LocalityAddress)
+                </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.District_town_.District_name)
+            </td>
+            <td>
+                @Html.ActionLink("Редактировать", "Edit", new { id = item.ID_School }) |
+                @Html.ActionLink("Подробно", "Details", new { id = item.ID_School }) |
+                @Html.ActionLink("Удалить", "Delete", new { id = item.ID_School })
+            </td>
+        </tr>
+    }
 
 </table>

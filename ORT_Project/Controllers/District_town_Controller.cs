@@ -15,9 +15,25 @@ namespace ORT_Project.Controllers
         private ORTEntities db = new ORTEntities();
 
         // GET: District_town_
-        public ActionResult Index()
+        public ActionResult Index(string SearchString, string sortOrder)
         {
             var district_town_ = db.District_town_.Include(d => d.Region1);
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.RegSortParm = sortOrder == "Reg_asc" ? "Reg_desc" : "Reg_asc";
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    district_town_ = district_town_.OrderByDescending(x => x.District_name);
+                    break;
+                case "Reg_desc":
+                    district_town_ = district_town_.OrderByDescending(x => x.Region);
+                    break;
+            }
+                   
+            if (!String.IsNullOrEmpty(SearchString))
+            {
+                return View(district_town_.Where(x => x.District_name.Contains(SearchString)));
+            }
             return View(district_town_.ToList());
         }
 
